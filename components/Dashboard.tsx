@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import UserProfile from './UserProfile';
 import BalanceCard from './BalanceCard';
-import InvestmentRecovery from './InvestmentRecovery';
 import AutotradeEngine from './AutotradeEngine';
 import TransactionHistory from './TransactionHistory';
 import Navigation from './Navigation';
@@ -65,11 +64,6 @@ export default function Dashboard() {
                 {/* Balance Cards */}
                 <div className={styles.balanceSection}>
                   <BalanceCard />
-                </div>
-
-                {/* Investment Recovery */}
-                <div className={styles.recoverySection}>
-                  <InvestmentRecovery />
                 </div>
 
                 {/* Unlock Phases */}
