@@ -8,14 +8,14 @@ export default function AutotradeEngine() {
       <div className={styles.engineHeader}>
         <div className={styles.engineIcon}>🤖</div>
         <div className={styles.engineTitle}>
-          <h3>AUTOTRADE IA</h3>
+          <h3>AUTOTRADE</h3>
           <span className={styles.engineStatus}>Status: ● Sistema activo</span>
         </div>
       </div>
 
       <div className={styles.engineMetrics}>
         <div className={styles.metricRow}>
-          <span className={styles.metricLabel}>Estratégia IA</span>
+          <span className={styles.metricLabel}>Estratégia</span>
           <span className={styles.metricValue}>Conservative</span>
         </div>
         <div className={styles.metricRow}>

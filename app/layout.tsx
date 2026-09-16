@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import BackgroundDesign from '@/components/BackgroundDesign';
 
 export const metadata: Metadata = {
-  title: 'AUTOTRADE IA - AI Automated Investment Platform',
-  description: 'AI Automated Investment Platform for smart trading',
+  title: 'AUTOTRADE - Automated Investment Platform',
+  description: 'Automated Investment Platform for smart trading',
 };
 
 export default function RootLayout({

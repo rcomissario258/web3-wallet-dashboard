@@ -26,7 +26,7 @@ export default function InvestmentsSection() {
       status: 'Ativo'
     },
     {
-      name: 'AI Trading Bot',
+      name: 'Trading Bot',
       type: 'Automatizado',
       amount: 500,
       profit: 20.1,

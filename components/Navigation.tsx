@@ -40,7 +40,7 @@ export default function Navigation({ onLogout, onTabChange }: NavigationProps) {
       {/* Sidebar */}
       <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
         <div className={styles.sidebarHeader}>
-          <h2 className={styles.sidebarTitle}>AUTOTRADE IA</h2>
+          <h2 className={styles.sidebarTitle}>AUTOTRADE</h2>
           <button
             className={styles.closeButton}
             onClick={() => setIsSidebarOpen(false)}

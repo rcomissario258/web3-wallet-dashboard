@@ -19,7 +19,7 @@ export default function TransactionHistory() {
     },
     {
       date: '05 Sep',
-      type: 'Lucro IA',
+      type: 'Lucro',
       amount: '+$180.00',
       status: 'Concluído',
     },

@@ -28,8 +28,8 @@ export default function Dashboard() {
     return (
       <div className={styles.loginScreen}>
         <div className={styles.loginCard}>
-          <h1 className={styles.loginTitle}>AUTOTRADE IA</h1>
-          <p className={styles.loginSubtitle}>AI Automated Investment Platform</p>
+          <h1 className={styles.loginTitle}>AUTOTRADE</h1>
+          <p className={styles.loginSubtitle}>Automated Investment Platform</p>
           <button
             onClick={() => setIsLoggedIn(true)}
             className={`${styles.btn} ${styles.btnPrimary}`}
@@ -48,8 +48,8 @@ export default function Dashboard() {
       <div className={styles.mainContent}>
         <header className={styles.header}>
           <div className={styles.headerContent}>
-            <h1 className={styles.title}>AUTOTRADE IA</h1>
-            <span className={styles.subtitle}>AI Automated Investment Platform</span>
+            <h1 className={styles.title}>AUTOTRADE</h1>
+            <span className={styles.subtitle}>Automated Investment Platform</span>
           </div>
         </header>
         
@@ -77,7 +77,7 @@ export default function Dashboard() {
                   <UnlockPhases />
                 </div>
 
-                {/* Autotrade AI Engine */}
+                {/* Autotrade Engine */}
                 <div className={styles.engineSection}>
                   <AutotradeEngine />
                 </div>
