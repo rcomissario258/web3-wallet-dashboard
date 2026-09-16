@@ -1,8 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import styles from '@/styles/UnlockPhases.module.css';
 
 export default function UnlockPhases() {
+  const [activeTab, setActiveTab] = useState(0);
+
   const logisticsFee = {
     percentage: 50,
     paid: 4500.08,
@@ -10,117 +13,186 @@ export default function UnlockPhases() {
     remaining: 7000.00
   };
 
-  const phase1 = {
-    name: 'FASE 1',
-    percentage: 30,
-    amount: 1380009.00,
-    status: 'PENDENTE',
-    description: 'Aguardando a conclusão do pagamento total da Fase 1 da operação logística'
-  };
-
-  const phase2 = {
-    name: 'FASE 2',
-    percentage: 50,
-    amount: 2300015.00,
-    status: 'PENDENTE',
-    description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística'
-  };
-
-  const phase3 = {
-    name: 'FASE 3',
-    percentage: 20,
-    amount: 920006.00,
-    status: 'PENDENTE',
-    description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística'
-  };
+  const tabs = [
+    {
+      id: 0,
+      title: 'Taxa Logística',
+      icon: '📦',
+      subtitle: 'Operação Logística',
+      percentage: logisticsFee.percentage,
+      content: {
+        type: 'logistics',
+        paid: logisticsFee.paid,
+        currency: logisticsFee.currency,
+        remaining: logisticsFee.remaining,
+        amount: logisticsFee.paid + logisticsFee.remaining,
+        status: 'EM ANDAMENTO',
+        description: 'Processando pagamento da taxa logística'
+      }
+    },
+    {
+      id: 1,
+      title: '1ª Fase',
+      icon: '🔓',
+      subtitle: 'Desbloqueio 30%',
+      percentage: 30,
+      amount: 1380009.00,
+      status: 'PENDENTE',
+      description: 'Aguardando a conclusão do pagamento total da Fase 1 da operação logística',
+      content: {
+        type: 'unlock',
+        amount: 1380009.00,
+        status: 'PENDENTE',
+        description: 'Aguardando a conclusão do pagamento total da Fase 1 da operação logística'
+      }
+    },
+    {
+      id: 2,
+      title: '2ª Fase',
+      icon: '🔐',
+      subtitle: 'Desbloqueio 50%',
+      percentage: 50,
+      amount: 2300015.00,
+      status: 'PENDENTE',
+      description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística',
+      content: {
+        type: 'unlock',
+        amount: 2300015.00,
+        status: 'PENDENTE',
+        description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística'
+      }
+    },
+    {
+      id: 3,
+      title: '3ª Fase',
+      icon: '🎯',
+      subtitle: 'Desbloqueio 20%',
+      percentage: 20,
+      amount: 920006.00,
+      status: 'PENDENTE',
+      description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística',
+      content: {
+        type: 'unlock',
+        amount: 920006.00,
+        status: 'PENDENTE',
+        description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística'
+      }
+    }
+  ];
 
   return (
     <div className={styles.unlockPhases}>
-      <h3 className={styles.sectionTitle}>FASES DE DESBLOQUEIO</h3>
+      <div className={styles.header}>
+        <h3 className={styles.sectionTitle}>FASES DE DESBLOQUEIO</h3>
+        <p className={styles.sectionSubtitle}>Gerenciamento de liberação de fundos</p>
+      </div>
       
-      {/* Fase 1 - Taxa Operação Logística */}
-      <div className={styles.phaseCard}>
-        <div className={styles.phaseHeader}>
-          <h4 className={styles.phaseTitle}>FASE 1 - Taxa da operação logística</h4>
-          <span className={styles.phasePercentage}>{logisticsFee.percentage}%</span>
-        </div>
-        
-        <div className={styles.phaseDetails}>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Valor Pago</span>
-            <span className={styles.detailValue}>{logisticsFee.paid.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {logisticsFee.currency}</span>
-          </div>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Remanescente</span>
-            <span className={`${styles.detailValue} ${styles.highlight}`}>US$ {logisticsFee.remaining.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-          </div>
-        </div>
+      {/* Tab Navigation */}
+      <div className={styles.tabNavigation}>
+        {tabs.map((tab, index) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(index)}
+            className={`${styles.tabButton} ${activeTab === index ? styles.activeTab : ''}`}
+          >
+            <span className={styles.tabIcon}>{tab.icon}</span>
+            <div className={styles.tabContent}>
+              <span className={styles.tabTitle}>{tab.title}</span>
+              <span className={styles.tabSubtitle}>{tab.subtitle}</span>
+            </div>
+            <span className={`${styles.tabPercentage} ${activeTab === index ? styles.activePercentage : ''}`}>
+              {tab.percentage}%
+            </span>
+          </button>
+        ))}
       </div>
 
-      {/* Fase 2 - Desbloqueio 30% */}
-      <div className={styles.phaseCard}>
-        <div className={styles.phaseHeader}>
-          <h4 className={styles.phaseTitle}>1ª fase - Desbloqueio 30%</h4>
-          <span className={`${styles.phasePercentage} ${styles.pending}`}>{phase1.percentage}%</span>
-        </div>
-        
-        <div className={styles.phaseDetails}>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Valor a ser desbloqueado</span>
-            <span className={styles.detailValue}>US$ {phase1.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-          </div>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Estado</span>
-            <span className={`${styles.statusBadge} ${styles.statusPending}`}>{phase1.status}</span>
-          </div>
-          <div className={styles.phaseDescription}>
-            <p>{phase1.description}</p>
-          </div>
-        </div>
-      </div>
+      {/* Tab Content */}
+      <div className={styles.tabContentContainer}>
+        {tabs[activeTab].content?.type === 'logistics' ? (
+          <div className={styles.contentCard}>
+            <div className={styles.contentHeader}>
+              <div className={styles.contentIcon}>📦</div>
+              <div>
+                <h4 className={styles.contentTitle}>Taxa da Operação Logística</h4>
+                <p className={styles.contentSubtitle}>Depois do total recuperado</p>
+              </div>
+            </div>
+            
+            <div className={styles.contentDetails}>
+              <div className={styles.detailItem}>
+                <div className={styles.detailIcon}>💰</div>
+                <div className={styles.detailInfo}>
+                  <span className={styles.detailLabel}>Valor Pago</span>
+                  <span className={styles.detailValue}>
+                    {logisticsFee.paid.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {logisticsFee.currency}
+                  </span>
+                </div>
+              </div>
+              
+              <div className={styles.detailItem}>
+                <div className={styles.detailIcon}>💵</div>
+                <div className={styles.detailInfo}>
+                  <span className={styles.detailLabel}>Remanescente</span>
+                  <span className={`${styles.detailValue} ${styles.highlight}`}>
+                    US$ {logisticsFee.remaining.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                </div>
+              </div>
+            </div>
 
-      {/* Fase 3 - Desbloqueio 50% */}
-      <div className={styles.phaseCard}>
-        <div className={styles.phaseHeader}>
-          <h4 className={styles.phaseTitle}>2ª fase - Desbloqueio 50%</h4>
-          <span className={`${styles.phasePercentage} ${styles.pending}`}>{phase2.percentage}%</span>
-        </div>
-        
-        <div className={styles.phaseDetails}>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Valor a ser desbloqueado</span>
-            <span className={styles.detailValue}>US$ {phase2.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+            <div className={styles.progressSection}>
+              <div className={styles.progressHeader}>
+                <span className={styles.progressLabel}>Progresso do Pagamento</span>
+                <span className={styles.progressValue}>{logisticsFee.percentage}%</span>
+              </div>
+              <div className={styles.progressBar}>
+                <div 
+                  className={styles.progressFill}
+                  style={{ width: `${logisticsFee.percentage}%` }}
+                />
+              </div>
+            </div>
           </div>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Estado</span>
-            <span className={`${styles.statusBadge} ${styles.statusPending}`}>{phase2.status}</span>
-          </div>
-          <div className={styles.phaseDescription}>
-            <p>{phase2.description}</p>
-          </div>
-        </div>
-      </div>
+        ) : (
+          <div className={styles.contentCard}>
+            <div className={styles.contentHeader}>
+              <div className={styles.contentIcon}>{tabs[activeTab].icon}</div>
+              <div>
+                <h4 className={styles.contentTitle}>Valor a ser desbloqueado na {tabs[activeTab].title}</h4>
+                <p className={styles.contentSubtitle}>{tabs[activeTab].subtitle}</p>
+              </div>
+            </div>
+            
+            <div className={styles.amountDisplay}>
+              <span className={styles.amountLabel}>Valor a desbloquear</span>
+              <span className={styles.amountValue}>
+                US$ {tabs[activeTab].content?.amount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || '0.00'}
+              </span>
+            </div>
 
-      {/* Fase 4 - Desbloqueio 20% */}
-      <div className={styles.phaseCard}>
-        <div className={styles.phaseHeader}>
-          <h4 className={styles.phaseTitle}>3ª fase - Desbloqueio 20%</h4>
-          <span className={`${styles.phasePercentage} ${styles.pending}`}>{phase3.percentage}%</span>
-        </div>
-        
-        <div className={styles.phaseDetails}>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Valor a ser desbloqueado</span>
-            <span className={styles.detailValue}>US$ {phase3.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+            <div className={styles.statusSection}>
+              <div className={styles.statusBadge}>
+                <span className={styles.statusDot}></span>
+                <span className={styles.statusText}>{tabs[activeTab].content?.status || 'PENDENTE'}</span>
+              </div>
+              <p className={styles.statusDescription}>{tabs[activeTab].content?.description || 'Aguardando processamento'}</p>
+            </div>
+
+            <div className={styles.progressSection}>
+              <div className={styles.progressHeader}>
+                <span className={styles.progressLabel}>Progresso da Fase</span>
+                <span className={styles.progressValue}>0%</span>
+              </div>
+              <div className={styles.progressBar}>
+                <div 
+                  className={`${styles.progressFill} ${styles.pendingFill}`}
+                  style={{ width: '0%' }}
+                />
+              </div>
+            </div>
           </div>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Estado</span>
-            <span className={`${styles.statusBadge} ${styles.statusPending}`}>{phase3.status}</span>
-          </div>
-          <div className={styles.phaseDescription}>
-            <p>{phase3.description}</p>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

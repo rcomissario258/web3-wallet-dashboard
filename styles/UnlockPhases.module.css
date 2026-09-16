@@ -1,80 +1,189 @@
 .unlockPhases {
   background-color: #1e293b;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 24px;
   margin-bottom: 20px;
   border: 1px solid #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+  margin-bottom: 24px;
 }
 
 .sectionTitle {
-  margin: 0 0 20px 0;
-  font-size: 16px;
-  font-weight: 600;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 700;
   color: #f8fafc;
+  letter-spacing: -0.025em;
 }
 
-.phaseCard {
-  background-color: #0f172a;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 16px;
-  border: 1px solid #334155;
-}
-
-.phaseCard:last-child {
-  margin-bottom: 0;
-}
-
-.phaseHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #334155;
-}
-
-.phaseTitle {
+.sectionSubtitle {
   margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #f8fafc;
-}
-
-.phasePercentage {
-  font-size: 12px;
-  font-weight: 600;
-  color: #10b981;
-  background-color: rgba(16, 185, 129, 0.1);
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.phasePercentage.pending {
-  color: #f59e0b;
-  background-color: rgba(245, 158, 11, 0.1);
-}
-
-.phaseDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.detailRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.detailLabel {
   font-size: 14px;
   color: #94a3b8;
 }
 
-.detailValue {
+.tabNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tabButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.tabButton:hover {
+  background-color: #1e293b;
+  border-color: #475569;
+  transform: translateY(-1px);
+}
+
+.tabButton.activeTab {
+  background-color: #1e293b;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.tabIcon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.tabContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.tabSubtitle {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.tabPercentage {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  background-color: #334155;
+  padding: 4px 8px;
+  border-radius: 6px;
+  min-width: 48px;
+  text-align: center;
+}
+
+.tabPercentage.activePercentage {
+  color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.tabContentContainer {
+  background-color: #0f172a;
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid #334155;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contentCard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contentHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #334155;
+}
+
+.contentIcon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.contentTitle {
+  margin: 0 0 4px 0;
   font-size: 16px;
   font-weight: 600;
+  color: #f8fafc;
+}
+
+.contentSubtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.contentDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.detailIcon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.detailInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailLabel {
+  font-size: 12px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detailValue {
+  font-size: 18px;
+  font-weight: 700;
   color: #f8fafc;
 }
 
@@ -82,32 +191,145 @@
   color: #10b981;
 }
 
+.amountDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 12px;
+  border: 1px solid #334155;
+  text-align: center;
+}
+
+.amountLabel {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.amountValue {
+  font-size: 28px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.025em;
+}
+
+.statusSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .statusBadge {
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 4px;
-}
-
-.statusPending {
-  color: #f59e0b;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
   background-color: rgba(245, 158, 11, 0.1);
+  border-radius: 8px;
+  width: fit-content;
 }
 
-.statusCompleted {
-  color: #10b981;
-  background-color: rgba(16, 185, 129, 0.1);
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
 }
 
-.phaseDescription {
-  margin-top: 8px;
-  padding-top: 12px;
-  border-top: 1px solid #334155;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-.phaseDescription p {
+.statusText {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f59e0b;
+}
+
+.statusDescription {
   margin: 0;
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.6;
+  padding: 12px;
+  background-color: #1e293b;
+  border-radius: 8px;
+  border-left: 3px solid #f59e0b;
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressLabel {
   font-size: 13px;
   color: #94a3b8;
-  line-height: 1.5;
+}
+
+.progressValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.progressBar {
+  height: 8px;
+  background-color: #334155;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressFill.pendingFill {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+@media (min-width: 768px) {
+  .tabNavigation {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .tabButton {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .contentDetails {
+    flex-direction: row;
+  }
+  
+  .detailItem {
+    flex: 1;
+  }
+  
+  .amountDisplay {
+    padding: 32px;
+  }
+  
+  .amountValue {
+    font-size: 36px;
+  }
 }
