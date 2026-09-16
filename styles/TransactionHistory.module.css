@@ -2,111 +2,71 @@
   background-color: #1e293b;
   border-radius: 8px;
   padding: 24px;
-  overflow-x: auto;
+  border: 1px solid #334155;
 }
 
-.table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 8px;
-}
-
-.tableHeader th {
-  background-color: #2d3748;
-  color: #a0aec0;
+.sectionTitle {
+  margin: 0 0 20px 0;
+  font-size: 16px;
   font-weight: 600;
-  text-align: left;
+  color: #f8fafc;
+}
+
+.transactionList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transactionItem {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 80px;
+  gap: 12px;
+  align-items: center;
   padding: 12px 16px;
-  font-size: 14px;
-}
-
-.tableHeader th:first-child {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-
-.tableHeader th:last-child {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-
-.tableRow {
   background-color: #2d3748;
+  border-radius: 6px;
   transition: background-color 0.2s ease;
 }
 
-.tableRow:hover {
+.transactionItem:hover {
   background-color: #3a4a61;
 }
 
-.tableRow td {
-  padding: 12px 16px;
+.transactionDate {
   font-size: 14px;
+  font-weight: 600;
+  color: #94a3b8;
 }
 
-.tableRow td:first-child {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+.transactionType {
+  font-size: 14px;
+  color: #f8fafc;
 }
 
-.tableRow td:last-child {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+.transactionAmount {
+  font-size: 14px;
+  font-weight: 600;
+  color: #10b981;
 }
 
-.addressContainer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.transactionAmount.negative {
+  color: #ef4444;
 }
 
-.address {
-  font-family: monospace;
-}
-
-.copyButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #a0aec0;
-  padding: 4px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.copyButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.copiedText {
+.transactionStatus {
   font-size: 12px;
-  color: #48bb78;
-  animation: fadeInOut 2s ease;
+  color: #10b981;
+  text-align: right;
 }
 
-.loading {
-  text-align: center;
-  padding: 20px;
-  font-size: 16px;
-  color: #a0aec0;
-}
-
-.error {
-  text-align: center;
-  padding: 20px;
-  font-size: 16px;
-  color: #e53e3e;
-  background-color: #2d3748;
-  border-radius: 6px;
-}
-
-@keyframes fadeInOut {
-  0%,
-  100% {
-    opacity: 0;
+@media (max-width: 768px) {
+  .transactionItem {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
-  10%,
-  90% {
-    opacity: 1;
+  
+  .transactionStatus {
+    text-align: left;
   }
 }

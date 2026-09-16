@@ -1,0 +1,65 @@
+.autotradeEngine {
+  background-color: #1e293b;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #334155;
+}
+
+.engineHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #334155;
+}
+
+.engineIcon {
+  font-size: 32px;
+}
+
+.engineTitle {
+  flex: 1;
+}
+
+.engineTitle h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.engineStatus {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: #10b981;
+}
+
+.engineMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metricRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metricLabel {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.metricValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.metricValue.performance {
+  color: #10b981;
+}

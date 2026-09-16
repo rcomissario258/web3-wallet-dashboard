@@ -1,14 +1,10 @@
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { Providers } from './providers';
 import BackgroundDesign from '@/components/BackgroundDesign';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
-  title: 'Web3 Wallet Dashboard',
-  description: 'Manage your cryptocurrencies and interact with DApps',
+  title: 'AUTOTRADE IA - AI Automated Investment Platform',
+  description: 'AI Automated Investment Platform for smart trading',
 };
 
 export default function RootLayout({
@@ -18,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className='font-sans'>
         <BackgroundDesign />
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );

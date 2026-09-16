@@ -1,29 +1,40 @@
 'use client';
 
 import { useState } from 'react';
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { InjectedConnector } from 'wagmi/connectors/injected';
-import WalletInfo from './WalletInfo';
+import UserProfile from './UserProfile';
+import BalanceCard from './BalanceCard';
+import InvestmentRecovery from './InvestmentRecovery';
+import AutotradeEngine from './AutotradeEngine';
 import TransactionHistory from './TransactionHistory';
-import DAppInteraction from './DAppInteraction';
+import Navigation from './Navigation';
+import WalletSection from './WalletSection';
+import InvestmentsSection from './InvestmentsSection';
+import UnlockPhases from './UnlockPhases';
 import styles from '@/styles/Dashboard.module.css';
 
 export default function Dashboard() {
-  const { address, isConnected } = useAccount();
-  const { connect } = useConnect({
-    connector: new InjectedConnector(),
-  });
-  const { disconnect } = useDisconnect();
-  const [activeTab, setActiveTab] = useState('wallet');
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [activeTab, setActiveTab] = useState('dashboard');
 
-  if (!isConnected) {
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+  };
+
+  if (!isLoggedIn) {
     return (
-      <div className={styles.centerContent}>
-        <div className={styles.connectWallet}>
-          <h1>Web3 Wallet Dashboard</h1>
-          <p>Connect your wallet to get started</p>
-          <button onClick={() => connect()} className='btn btn-primary'>
-            Connect Wallet
+      <div className={styles.loginScreen}>
+        <div className={styles.loginCard}>
+          <h1 className={styles.loginTitle}>AUTOTRADE IA</h1>
+          <p className={styles.loginSubtitle}>AI Automated Investment Platform</p>
+          <button
+            onClick={() => setIsLoggedIn(true)}
+            className={`${styles.btn} ${styles.btnPrimary}`}
+          >
+            Entrar
           </button>
         </div>
       </div>
@@ -32,49 +43,68 @@ export default function Dashboard() {
 
   return (
     <div className={styles.dashboard}>
-      <header className={styles.header}>
-        <div className={`container ${styles.headerContent}`}>
-          <h1 className={styles.title}>Web3 Wallet Dashboard</h1>
-          <button onClick={() => disconnect()} className='btn btn-secondary'>
-            Disconnect
-          </button>
-        </div>
-      </header>
-      <main className={styles.main}>
-        <div className='container'>
-          <div className={styles.tabs}>
-            <button
-              onClick={() => setActiveTab('wallet')}
-              className={`btn ${
-                activeTab === 'wallet' ? 'btn-primary' : 'btn-secondary'
-              }`}
-            >
-              Wallet
-            </button>
-            <button
-              onClick={() => setActiveTab('transactions')}
-              className={`btn ${
-                activeTab === 'transactions' ? 'btn-primary' : 'btn-secondary'
-              }`}
-            >
-              Transactions
-            </button>
-            <button
-              onClick={() => setActiveTab('dapps')}
-              className={`btn ${
-                activeTab === 'dapps' ? 'btn-primary' : 'btn-secondary'
-              }`}
-            >
-              DApps
-            </button>
+      <Navigation onLogout={handleLogout} onTabChange={handleTabChange} />
+      
+      <div className={styles.mainContent}>
+        <header className={styles.header}>
+          <div className={styles.headerContent}>
+            <h1 className={styles.title}>AUTOTRADE IA</h1>
+            <span className={styles.subtitle}>AI Automated Investment Platform</span>
           </div>
-          <div className={styles.content}>
-            {activeTab === 'wallet' && <WalletInfo address={address} />}
-            {activeTab === 'transactions' && <TransactionHistory />}
-            {activeTab === 'dapps' && <DAppInteraction />}
+        </header>
+        
+        <main className={styles.main}>
+          <div className={styles.container}>
+            {activeTab === 'dashboard' && (
+              <div className={styles.dashboardGrid}>
+                {/* Profile Section */}
+                <div className={styles.profileSection}>
+                  <UserProfile />
+                </div>
+
+                {/* Balance Cards */}
+                <div className={styles.balanceSection}>
+                  <BalanceCard />
+                </div>
+
+                {/* Investment Recovery */}
+                <div className={styles.recoverySection}>
+                  <InvestmentRecovery />
+                </div>
+
+                {/* Unlock Phases */}
+                <div className={styles.recoverySection}>
+                  <UnlockPhases />
+                </div>
+
+                {/* Autotrade AI Engine */}
+                <div className={styles.engineSection}>
+                  <AutotradeEngine />
+                </div>
+
+                {/* Transaction History */}
+                <div className={styles.historySection}>
+                  <TransactionHistory />
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'wallet' && (
+              <WalletSection />
+            )}
+
+            {activeTab === 'investments' && (
+              <InvestmentsSection />
+            )}
+
+            {activeTab === 'history' && (
+              <div className={styles.historySection}>
+                <TransactionHistory />
+              </div>
+            )}
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
