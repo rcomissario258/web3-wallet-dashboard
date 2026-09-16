@@ -74,7 +74,7 @@ export default function InvestmentsSection() {
         <div className={styles.summaryGrid}>
           <div className={styles.summaryItem}>
             <span className={styles.summaryLabel}>Total investido</span>
-            <span className={styles.summaryValue}>$1,000,000.00</span>
+            <span className={styles.summaryValue}>$1,000,000.122</span>
           </div>
           <div className={styles.summaryItem}>
             <span className={styles.summaryLabel}>Lucro total</span>

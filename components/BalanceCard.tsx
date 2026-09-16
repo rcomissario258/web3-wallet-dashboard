@@ -20,7 +20,7 @@ export default function BalanceCard() {
       <div className={styles.balanceCard}>
         <h3 className={styles.cardTitle}>VALOR INVESTIDO</h3>
         <div className={styles.balanceValue}>
-          <span className={styles.amount}>$ 1,000,000.00</span>
+          <span className={styles.amount}>$ 1,000,000.122</span>
         </div>
       </div>
     </div>
