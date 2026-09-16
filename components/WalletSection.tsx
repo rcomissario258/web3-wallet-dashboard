@@ -15,7 +15,7 @@ export default function WalletSection() {
           </div>
           <div className={styles.cardBalance}>
             <span className={styles.balanceLabel}>Saldo disponível</span>
-            <span className={styles.balanceValue}>$5,840.00</span>
+            <span className={styles.balanceValue}>$0.08</span>
           </div>
           <div className={styles.cardActions}>
             <button className={`${styles.btn} ${styles.btnPrimary}`}>Depositar</button>
@@ -30,7 +30,7 @@ export default function WalletSection() {
           </div>
           <div className={styles.cardBalance}>
             <span className={styles.balanceLabel}>Valor investido</span>
-            <span className={styles.balanceValue}>$5,000.00</span>
+            <span className={styles.balanceValue}>$1,000,122.00</span>
           </div>
           <div className={styles.cardActions}>
             <button className={`${styles.btn} ${styles.btnPrimary}`}>Adicionar fundos</button>
