@@ -16,22 +16,22 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [loginError, setLoginError] = useState('');
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUsername('');
     setPassword('');
-    setError('');
+    setLoginError('');
   };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (username === 'eduardo2liveira' && password === 'eduardo123') {
       setIsLoggedIn(true);
-      setError('');
+      setLoginError('');
     } else {
-      setError('Credenciais inválidas');
+      setLoginError('Credenciais inválidas');
     }
   };
 
@@ -70,7 +70,7 @@ export default function Dashboard() {
                 required
               />
             </div>
-            {error && <p className={styles.errorMessage}>{error}</p>}
+            {loginError && <p className={styles.loginError}>{loginError}</p>}
             <button
               type="submit"
               className={`${styles.btn} ${styles.btnPrimary}`}

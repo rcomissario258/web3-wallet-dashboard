@@ -213,7 +213,9 @@
 .formLabel {
   font-size: 14px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .formInput {
@@ -236,9 +238,13 @@
   color: #64748b;
 }
 
-.errorMessage {
+.loginError {
   margin: 0;
-  font-size: 14px;
   color: #ef4444;
+  font-size: 14px;
   text-align: center;
+  padding: 8px;
+  background-color: rgba(239, 68, 68, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
 }
