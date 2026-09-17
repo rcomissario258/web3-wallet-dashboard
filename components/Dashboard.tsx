@@ -54,7 +54,7 @@ export default function Dashboard() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className={styles.formInput}
-                placeholder="eduardo2liveira"
+                placeholder="digite seu email"
                 required
               />
             </div>
@@ -66,7 +66,7 @@ export default function Dashboard() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className={styles.formInput}
-                placeholder="••••••••"
+                placeholder="digite sua senha"
                 required
               />
             </div>
