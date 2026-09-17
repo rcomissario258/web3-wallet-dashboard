@@ -12,11 +12,27 @@ import UnlockPhases from './UnlockPhases';
 import styles from '@/styles/Dashboard.module.css';
 
 export default function Dashboard() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setUsername('');
+    setPassword('');
+    setError('');
+  };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username === 'eduardo2liveira' && password === 'eduardo123') {
+      setIsLoggedIn(true);
+      setError('');
+    } else {
+      setError('Credenciais inválidas');
+    }
   };
 
   const handleTabChange = (tab: string) => {
@@ -29,12 +45,39 @@ export default function Dashboard() {
         <div className={styles.loginCard}>
           <h1 className={styles.loginTitle}>AUTOTRADE</h1>
           <p className={styles.loginSubtitle}>Automated Investment Platform</p>
-          <button
-            onClick={() => setIsLoggedIn(true)}
-            className={`${styles.btn} ${styles.btnPrimary}`}
-          >
-            Entrar
-          </button>
+          <form onSubmit={handleLogin} className={styles.loginForm}>
+            <div className={styles.formGroup}>
+              <label htmlFor="username" className={styles.formLabel}>Username</label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className={styles.formInput}
+                placeholder="eduardo2liveira"
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="password" className={styles.formLabel}>Password</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={styles.formInput}
+                placeholder="••••••••"
+                required
+              />
+            </div>
+            {error && <p className={styles.errorMessage}>{error}</p>}
+            <button
+              type="submit"
+              className={`${styles.btn} ${styles.btnPrimary}`}
+            >
+              Entrar
+            </button>
+          </form>
         </div>
       </div>
     );
