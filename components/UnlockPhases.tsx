@@ -7,7 +7,7 @@ export default function UnlockPhases() {
   const [activeTab, setActiveTab] = useState(0);
 
   const logisticsFee = {
-    percentage: 50,
+    percentage: 100,
     paid: 4500.08,
     currency: 'USDT',
     remaining: 7000.00
@@ -124,9 +124,10 @@ export default function UnlockPhases() {
                 <div className={styles.detailIcon}>💰</div>
                 <div className={styles.detailInfo}>
                   <span className={styles.detailLabel}>Valor Pago</span>
-                  <span className={styles.detailValue}>
-                    {logisticsFee.paid.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {logisticsFee.currency}
+                  <span className={`${styles.detailValue} ${styles.denied}`}>
+                    NEGADO
                   </span>
+                  <span className={styles.deniedNote}>Negado por conflito de interesse</span>
                 </div>
               </div>
               
@@ -134,8 +135,8 @@ export default function UnlockPhases() {
                 <div className={styles.detailIcon}>💵</div>
                 <div className={styles.detailInfo}>
                   <span className={styles.detailLabel}>Remanescente</span>
-                  <span className={`${styles.detailValue} ${styles.highlight}`}>
-                    US$ {logisticsFee.remaining.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className={`${styles.detailValue} ${styles.paid}`}>
+                    PAGO
                   </span>
                 </div>
               </div>
