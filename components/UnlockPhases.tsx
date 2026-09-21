@@ -34,14 +34,14 @@ export default function UnlockPhases() {
       id: 1,
       title: 'Fase 1',
       icon: '🔓',
-      subtitle: 'Taxa de Processamento',
+      subtitle: '50% da Taxa Operacional',
       percentage: 100,
-      amount: 4500.00,
+      amount: 11500.08,
       status: 'PAGO',
       description: 'Pagamento em processo pela AUTOTRADE, AI',
       content: {
         type: 'phase',
-        amount: 4500.00,
+        amount: 11500.08,
         status: 'PAGO',
         description: 'Pagamento em processo pela AUTOTRADE, AI'
       }
@@ -50,16 +50,32 @@ export default function UnlockPhases() {
       id: 2,
       title: 'Fase 2',
       icon: '🔐',
-      subtitle: 'Taxa Abonatória',
+      subtitle: '50% da Taxa Operacional',
       percentage: 100,
-      amount: 5750.00,
+      amount: 11500.07,
       status: 'PAGO',
-      description: 'Pagamento em processo pela AUTOTRADE, AI',
+      description: 'Pagamento em processo pela AUTOTRADE, AI (Taxa abonatória de 5,750.00$ já paga)',
       content: {
         type: 'phase',
-        amount: 5750.00,
+        amount: 11500.07,
         status: 'PAGO',
-        description: 'Pagamento em processo pela AUTOTRADE, AI'
+        description: 'Pagamento em processo pela AUTOTRADE, AI (Taxa abonatória de 5,750.00$ já paga)'
+      }
+    },
+    {
+      id: 3,
+      title: 'Fase 3',
+      icon: '🎯',
+      subtitle: 'Taxa de Processamento',
+      percentage: 0,
+      amount: 0.00,
+      status: 'PENDENTE',
+      description: 'Aguardando processamento',
+      content: {
+        type: 'phase',
+        amount: 0.00,
+        status: 'PENDENTE',
+        description: 'Aguardando processamento'
       }
     }
   ];
