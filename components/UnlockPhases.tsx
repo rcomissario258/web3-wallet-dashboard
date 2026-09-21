@@ -32,50 +32,34 @@ export default function UnlockPhases() {
     },
     {
       id: 1,
-      title: '1ª Fase',
+      title: 'Fase 1',
       icon: '🔓',
-      subtitle: 'Desbloqueio 30%',
-      percentage: 30,
-      amount: 1380009.00,
-      status: 'PENDENTE',
-      description: 'Aguardando a conclusão do pagamento total da Fase 1 da operação logística',
+      subtitle: 'Taxa de Processamento',
+      percentage: 100,
+      amount: 4500.00,
+      status: 'PAGO',
+      description: 'Pagamento em processo pela AUTOTRADE, AI',
       content: {
-        type: 'unlock',
-        amount: 1380009.00,
-        status: 'PENDENTE',
-        description: 'Aguardando a conclusão do pagamento total da Fase 1 da operação logística'
+        type: 'phase',
+        amount: 4500.00,
+        status: 'PAGO',
+        description: 'Pagamento em processo pela AUTOTRADE, AI'
       }
     },
     {
       id: 2,
-      title: '2ª Fase',
+      title: 'Fase 2',
       icon: '🔐',
-      subtitle: 'Desbloqueio 50%',
-      percentage: 50,
-      amount: 2300015.00,
-      status: 'PENDENTE',
-      description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística',
+      subtitle: 'Taxa Abonatória',
+      percentage: 100,
+      amount: 5750.00,
+      status: 'PAGO',
+      description: 'Pagamento em processo pela AUTOTRADE, AI',
       content: {
-        type: 'unlock',
-        amount: 2300015.00,
-        status: 'PENDENTE',
-        description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística'
-      }
-    },
-    {
-      id: 3,
-      title: '3ª Fase',
-      icon: '🎯',
-      subtitle: 'Desbloqueio 20%',
-      percentage: 20,
-      amount: 920006.00,
-      status: 'PENDENTE',
-      description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística',
-      content: {
-        type: 'unlock',
-        amount: 920006.00,
-        status: 'PENDENTE',
-        description: 'Aguardando a conclusão do pagamento total da Fase 2 da operação logística'
+        type: 'phase',
+        amount: 5750.00,
+        status: 'PAGO',
+        description: 'Pagamento em processo pela AUTOTRADE, AI'
       }
     }
   ];
@@ -158,6 +142,44 @@ export default function UnlockPhases() {
                 <div 
                   className={styles.progressFill}
                   style={{ width: `${logisticsFee.percentage}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        ) : tabs[activeTab].content?.type === 'phase' ? (
+          <div className={styles.contentCard}>
+            <div className={styles.contentHeader}>
+              <div className={styles.contentIcon}>{tabs[activeTab].icon}</div>
+              <div>
+                <h4 className={styles.contentTitle}>{tabs[activeTab].title}</h4>
+                <p className={styles.contentSubtitle}>{tabs[activeTab].subtitle}</p>
+              </div>
+            </div>
+            
+            <div className={styles.amountDisplay}>
+              <span className={styles.amountLabel}>Valor da Fase</span>
+              <span className={styles.amountValue}>
+                US$ {tabs[activeTab].content?.amount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || '0.00'}
+              </span>
+            </div>
+
+            <div className={styles.statusSection}>
+              <div className={`${styles.statusBadge} ${styles.paidStatusBadge}`}>
+                <span className={`${styles.statusDot} ${styles.paidStatusDot}`}></span>
+                <span className={`${styles.statusText} ${styles.paidStatusText}`}>{tabs[activeTab].content?.status || 'PENDENTE'}</span>
+              </div>
+              <p className={styles.statusDescription}>{tabs[activeTab].content?.description || 'Aguardando processamento'}</p>
+            </div>
+
+            <div className={styles.progressSection}>
+              <div className={styles.progressHeader}>
+                <span className={styles.progressLabel}>Progresso da Fase</span>
+                <span className={styles.progressValue}>{tabs[activeTab].percentage}%</span>
+              </div>
+              <div className={styles.progressBar}>
+                <div 
+                  className={`${styles.progressFill} ${styles.paidFill}`}
+                  style={{ width: `${tabs[activeTab].percentage}%` }}
                 />
               </div>
             </div>

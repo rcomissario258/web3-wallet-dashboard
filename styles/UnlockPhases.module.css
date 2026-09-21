@@ -319,6 +319,23 @@
   letter-spacing: 0.05em;
 }
 
+.paidStatusBadge {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.paidStatusDot {
+  background-color: #10b981;
+  animation: none;
+}
+
+.paidStatusText {
+  color: #10b981;
+}
+
+.paidFill {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
 .amountDisplay {
   display: flex;
   flex-direction: column;
