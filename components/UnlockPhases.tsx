@@ -104,16 +104,16 @@ export default function UnlockPhases() {
             </div>
             
             <div className={styles.contentDetails}>
-              <div className={`${styles.detailItem} ${styles.deniedItem}`}>
+              <div className={`${styles.detailItem} ${styles.paidItem}`}>
                 <div className={styles.detailIcon}>💰</div>
                 <div className={styles.detailInfo}>
                   <span className={styles.detailLabel}>Valor Pago</span>
                   <span className={styles.detailValue}>
                     {logisticsFee.paid.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {logisticsFee.currency}
                   </span>
-                  <div className={styles.attentionBadge}>
-                    <span className={styles.attentionIcon}>⚠️</span>
-                    <span className={styles.attentionText}>NEGADO - Conflito de interesse</span>
+                  <div className={styles.successBadge}>
+                    <span className={styles.successIcon}>✅</span>
+                    <span className={styles.successText}>PAGO</span>
                   </div>
                 </div>
               </div>
