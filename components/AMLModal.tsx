@@ -125,6 +125,13 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                 </p>
               </div>
 
+              <div className={styles.noteBox}>
+                <AlertTriangle className={styles.noteIcon} />
+                <p className={styles.noteText}>
+                  As retiradas que envolvem volumes avultados de crédito são automaticamente encaminhadas para fins de análises pela AML, estando sujeitas ao AML Fee para fins de flexibilização da operação
+                </p>
+              </div>
+
               <div className={styles.infoSection}>
                 <div className={styles.infoHeader}>
                   <Info className={styles.infoIcon} />
