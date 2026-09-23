@@ -18,8 +18,8 @@ export default function ProfileSettings() {
   const [formData, setFormData] = useState({
     firstName: 'Eduardo',
     lastName: 'Oliveira',
-    email: 'eduardo2liveira@gmail.com',
-    phone: '+258 84 123 4567',
+    email: 'eduardo@example.com',
+    phone: '+258 XX XXX XXXX',
     country: 'Mozambique',
     language: 'pt',
     timezone: 'Africa/Maputo',
@@ -262,7 +262,7 @@ export default function ProfileSettings() {
             <div className={styles.deviceItem}>
               <Laptop className={styles.deviceIcon} />
               <div className={styles.deviceInfo}>
-                <span className={styles.deviceName}>MacBook Pro</span>
+                <span className={styles.deviceName}>Computador Desktop</span>
                 <span className={styles.deviceLocation}>Maputo, Mozambique • Ativo agora</span>
               </div>
               <span className={styles.deviceStatus}>Atual</span>
@@ -270,7 +270,7 @@ export default function ProfileSettings() {
             <div className={styles.deviceItem}>
               <Smartphone className={styles.deviceIcon} />
               <div className={styles.deviceInfo}>
-                <span className={styles.deviceName}>iPhone 14 Pro</span>
+                <span className={styles.deviceName}>Smartphone</span>
                 <span className={styles.deviceLocation}>Maputo, Mozambique • Há 2 horas</span>
               </div>
               <span className={styles.deviceStatus}>Anterior</span>
@@ -483,7 +483,7 @@ export default function ProfileSettings() {
             </div>
             <div className={styles.paymentInfo}>
               <h5 className={styles.paymentTitle}>Carteira Digital</h5>
-              <p className={styles.paymentDescription}>M-Pesa</p>
+              <p className={styles.paymentDescription}>Carteira Móvel</p>
             </div>
             <button className={styles.verifyButton}>Verificar</button>
           </div>

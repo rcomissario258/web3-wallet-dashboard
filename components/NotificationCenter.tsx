@@ -13,7 +13,7 @@ export default function NotificationCenter() {
       id: 1,
       type: 'success',
       title: 'Pagamento Concluído',
-      message: 'Sua taxa AML foi processada com sucesso',
+      message: 'Taxa de compliance processada com sucesso',
       time: '2 minutos atrás',
       read: false
     },

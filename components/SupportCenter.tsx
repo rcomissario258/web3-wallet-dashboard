@@ -23,13 +23,13 @@ export default function SupportCenter() {
     },
     {
       id: 2,
-      subject: 'Dúvida sobre taxa AML',
+      subject: 'Dúvida sobre taxa de compliance',
       status: 'resolved',
       priority: 'medium',
       createdAt: '2024-09-20T15:20:00',
       messages: [
-        { sender: 'user', text: 'Qual é a taxa AML?', time: '2024-09-20T15:20:00' },
-        { sender: 'support', text: 'A taxa AML é de 0.5% sobre o valor da transação', time: '2024-09-20T15:25:00' }
+        { sender: 'user', text: 'Qual é a taxa de compliance?', time: '2024-09-20T15:20:00' },
+        { sender: 'support', text: 'A taxa de compliance é de 0.5% sobre o valor da transação', time: '2024-09-20T15:25:00' }
       ]
     }
   ]);
@@ -46,7 +46,7 @@ export default function SupportCenter() {
       id: 2,
       category: 'Segurança',
       question: 'O que é a taxa AML?',
-      answer: 'A taxa AML (Anti-Money Laundering) é uma taxa obrigatória de 0.5% cobrada de acordo com regulamentações internacionais de combate à lavagem de dinheiro.',
+      answer: 'A taxa de compliance é uma taxa obrigatória de 0.5% cobrada de acordo com regulamentações internacionais de verificação de transações.',
       rating: 4.9
     },
     {
@@ -293,7 +293,7 @@ export default function SupportCenter() {
             </div>
             <div className={styles.contactInfo}>
               <h4 className={styles.contactMethodTitle}>Email</h4>
-              <p className={styles.contactMethodValue}>support@autotradeai.net</p>
+              <p className={styles.contactMethodValue}>support@autotrade.net</p>
               <p className={styles.contactMethodTime}>Resposta em 24h</p>
             </div>
           </div>
@@ -304,8 +304,8 @@ export default function SupportCenter() {
             </div>
             <div className={styles.contactInfo}>
               <h4 className={styles.contactMethodTitle}>Telefone</h4>
-              <p className={styles.contactMethodValue}>+258 84 123 4567</p>
-              <p className={styles.contactMethodTime}>Seg-Sex, 9h-18h</p>
+              <p className={styles.contactMethodValue}>+258 XX XXX XXXX</p>
+              <p className={styles.contactMethodTime}>Horário Comercial</p>
             </div>
           </div>
 
