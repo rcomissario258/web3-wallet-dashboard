@@ -5,10 +5,12 @@ import UserProfile from './UserProfile';
 import BalanceCard from './BalanceCard';
 import AutotradeEngine from './AutotradeEngine';
 import TransactionHistory from './TransactionHistory';
+import DetailedTransactionHistory from './DetailedTransactionHistory';
 import Navigation from './Navigation';
 import WalletSection from './WalletSection';
 import InvestmentsSection from './InvestmentsSection';
 import UnlockPhases from './UnlockPhases';
+import WithdrawalPhases from './WithdrawalPhases';
 import styles from '@/styles/Dashboard.module.css';
 
 export default function Dashboard() {
@@ -109,6 +111,11 @@ export default function Dashboard() {
                   <BalanceCard />
                 </div>
 
+                {/* Withdrawal Phases */}
+                <div className={styles.withdrawalSection}>
+                  <WithdrawalPhases />
+                </div>
+
                 {/* Unlock Phases */}
                 <div className={styles.recoverySection}>
                   <UnlockPhases />
@@ -136,7 +143,7 @@ export default function Dashboard() {
 
             {activeTab === 'history' && (
               <div className={styles.historySection}>
-                <TransactionHistory />
+                <DetailedTransactionHistory />
               </div>
             )}
           </div>

@@ -1,0 +1,251 @@
+.withdrawalPhases {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.025em;
+}
+
+.sectionSubtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.totalDisplay {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-radius: 12px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.totalIcon {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.totalInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.totalLabel {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+.totalValue {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.025em;
+}
+
+.phasesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.phaseCard {
+  background-color: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.phaseCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.phaseCard.available {
+  border-color: #10b981;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, #1e293b 100%);
+}
+
+.phaseCard.available:hover {
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+}
+
+.phaseCard.locked {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.phaseCard.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.phaseHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.phaseIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #334155;
+  color: #94a3b8;
+}
+
+.phaseIcon.availableIcon {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.phaseIcon.lockedIcon {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.phaseInfo {
+  flex: 1;
+}
+
+.phaseTitle {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.phaseDescription {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.phaseAmount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #0f172a;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #334155;
+}
+
+.amountLabel {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.amountValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.phaseStatus {
+  margin-bottom: 16px;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statusBadge.availableStatus {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.statusBadge.lockedStatus {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.phaseAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.phaseAction:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.actionText {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.actionIcon {
+  transition: transform 0.2s ease;
+}
+
+.phaseCard:hover .actionIcon {
+  transform: translateX(4px);
+}
+
+@media (min-width: 768px) {
+  .phasesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .phasesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .totalValue {
+    font-size: 32px;
+  }
+}
