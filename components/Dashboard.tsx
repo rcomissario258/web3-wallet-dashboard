@@ -11,6 +11,9 @@ import WalletSection from './WalletSection';
 import InvestmentsSection from './InvestmentsSection';
 import UnlockPhases from './UnlockPhases';
 import WithdrawalPhases from './WithdrawalPhases';
+import ProfileSettings from './ProfileSettings';
+import NotificationCenter from './NotificationCenter';
+import SupportCenter from './SupportCenter';
 import styles from '@/styles/Dashboard.module.css';
 
 export default function Dashboard() {
@@ -95,6 +98,7 @@ export default function Dashboard() {
             <h1 className={styles.title}>AUTOTRADE</h1>
             <span className={styles.subtitle}>Automated Investment Platform</span>
           </div>
+          <NotificationCenter />
         </header>
         
         <main className={styles.main}>
@@ -144,6 +148,18 @@ export default function Dashboard() {
             {activeTab === 'history' && (
               <div className={styles.historySection}>
                 <DetailedTransactionHistory />
+              </div>
+            )}
+
+            {activeTab === 'settings' && (
+              <div className={styles.settingsSection}>
+                <ProfileSettings />
+              </div>
+            )}
+
+            {activeTab === 'support' && (
+              <div className={styles.supportSection}>
+                <SupportCenter />
               </div>
             )}
           </div>

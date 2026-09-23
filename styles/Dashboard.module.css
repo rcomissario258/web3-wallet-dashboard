@@ -83,12 +83,28 @@
   grid-column: span 1;
 }
 
+.settingsSection {
+  grid-column: span 1;
+}
+
+.supportSection {
+  grid-column: span 1;
+}
+
 .historySection:only-child {
   grid-column: span 1;
 }
 
 @media (min-width: 768px) {
   .historySection:only-child {
+    grid-column: span 2;
+  }
+  
+  .settingsSection {
+    grid-column: span 2;
+  }
+  
+  .supportSection {
     grid-column: span 2;
   }
 }

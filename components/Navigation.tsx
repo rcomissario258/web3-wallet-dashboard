@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Home, Wallet, TrendingUp, History, LogOut, Menu, X } from 'lucide-react';
+import { Home, Wallet, TrendingUp, History, LogOut, Menu, X, User, MessageCircle } from 'lucide-react';
 import styles from '@/styles/Navigation.module.css';
 
 interface NavigationProps {
@@ -18,6 +18,8 @@ export default function Navigation({ onLogout, onTabChange }: NavigationProps) {
     { id: 'wallet', label: 'Carteira', icon: Wallet },
     { id: 'investments', label: 'Investimentos', icon: TrendingUp },
     { id: 'history', label: 'Histórico', icon: History },
+    { id: 'support', label: 'Suporte', icon: MessageCircle },
+    { id: 'settings', label: 'Configurações', icon: User },
   ];
 
   const handleTabClick = (tabId: string) => {
