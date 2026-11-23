@@ -19,10 +19,10 @@ export default function ProfileSettings() {
     firstName: 'Eduardo',
     lastName: 'Oliveira',
     email: 'eduardo@example.com',
-    phone: '+258 XX XXX XXXX',
-    country: 'Mozambique',
+    phone: '+49 XX XXX XXXX',
+    country: 'Germany',
     language: 'pt',
-    timezone: 'Africa/Maputo',
+    timezone: 'Africa/Berlin',
     currentPassword: '',
     newPassword: '',
     confirmPassword: '',
@@ -41,10 +41,10 @@ export default function ProfileSettings() {
     try {
       const currentUser = localStorage.getItem('currentUser') || 'eduardo';
       const profiles: Record<string, any> = {
-        eduardo: { firstName: 'Eduardo', lastName: 'Oliveira', email: 'eduardo@example.com', phone: '+258 XX XXX XXXX', country: 'Mozambique', language: 'pt', timezone: 'Africa/Maputo', avatarName: 'Eduardo Oliveira', avatarStatus: 'Platinum Member' },
+        eduardo: { firstName: 'Eduardo', lastName: 'Oliveira', email: 'eduardo@example.com', phone: '+49 XX XXX XXXX', country: 'Germany', language: 'pt', timezone: 'Africa/Berlin', avatarName: 'Eduardo Oliveira', avatarStatus: 'Platinum Member' },
         wolfgang: { firstName: 'Wolfgang', lastName: 'Sieder-Scheidt', email: 'wolfgang@example.com', phone: '+49 XX XXX XXXX', country: 'Germany', language: 'de', timezone: 'Europe/Berlin', avatarName: 'Wolfgang Sieder-Scheidt', avatarStatus: 'Gold Member' },
-        teste: { firstName: 'Usuario', lastName: 'Teste', email: 'teste@example.com', phone: '+258 XX XXX XXXX', country: 'Mozambique', language: 'pt', timezone: 'Africa/Maputo', avatarName: 'Usuario Teste', avatarStatus: 'Silver Member' },
-        francisco: { firstName: 'Francisco', lastName: 'Leite', email: 'francisco@example.com', phone: '+258 XX XXX XXXX', country: 'Mozambique', language: 'pt', timezone: 'Africa/Maputo', avatarName: 'Francisco Leite', avatarStatus: 'Gold Member' },
+        teste: { firstName: 'Usuario', lastName: 'Teste', email: 'teste@example.com', phone: '+49 XX XXX XXXX', country: 'Germany', language: 'pt', timezone: 'Africa/Berlin', avatarName: 'Usuario Teste', avatarStatus: 'Silver Member' },
+        francisco: { firstName: 'Francisco', lastName: 'Leite', email: 'francisco@example.com', phone: '+49 XX XXX XXXX', country: 'Germany', language: 'pt', timezone: 'Africa/Berlin', avatarName: 'Francisco Leite', avatarStatus: 'Gold Member' },
       };
       const p = profiles[currentUser] || profiles.eduardo;
       setFormData(prev => ({ ...prev, firstName: p.firstName, lastName: p.lastName, email: p.email, phone: p.phone, country: p.country, language: p.language, timezone: p.timezone }));
@@ -167,7 +167,7 @@ export default function ProfileSettings() {
               value={formData.country}
               onChange={(e) => handleInputChange('country', e.target.value)}
             >
-              <option value="Mozambique">Mozambique</option>
+              <option value="Germany">Germany</option>
               <option value="Portugal">Portugal</option>
               <option value="Brasil">Brasil</option>
               <option value="Angola">Angola</option>
@@ -198,7 +198,7 @@ export default function ProfileSettings() {
           </div>
           <div className={styles.formGroup}>
             <label className={styles.formLabel}>Cidade</label>
-            <input type="text" className={styles.formInput} placeholder="Maputo" />
+            <input type="text" className={styles.formInput} placeholder="Berlin" />
           </div>
           <div className={styles.formGroup}>
             <label className={styles.formLabel}>Código Postal</label>
@@ -300,7 +300,7 @@ export default function ProfileSettings() {
               <Laptop className={styles.deviceIcon} />
               <div className={styles.deviceInfo}>
                 <span className={styles.deviceName}>Computador Desktop</span>
-                <span className={styles.deviceLocation}>Maputo, Mozambique • Ativo agora</span>
+                <span className={styles.deviceLocation}>Berlin, Germany • Ativo agora</span>
               </div>
               <span className={styles.deviceStatus}>Atual</span>
             </div>
@@ -308,7 +308,7 @@ export default function ProfileSettings() {
               <Smartphone className={styles.deviceIcon} />
               <div className={styles.deviceInfo}>
                 <span className={styles.deviceName}>Smartphone</span>
-                <span className={styles.deviceLocation}>Maputo, Mozambique • Há 2 horas</span>
+                <span className={styles.deviceLocation}>Berlin, Germany • Há 2 horas</span>
               </div>
               <span className={styles.deviceStatus}>Anterior</span>
             </div>
@@ -440,7 +440,7 @@ export default function ProfileSettings() {
             value={formData.timezone}
             onChange={(e) => handleInputChange('timezone', e.target.value)}
           >
-            <option value="Africa/Maputo">Africa/Maputo (GMT+2)</option>
+            <option value="Africa/Berlin">Africa/Berlin (GMT+2)</option>
             <option value="Europe/Lisbon">Europe/Lisbon (GMT+1)</option>
             <option value="America/Sao_Paulo">America/Sao_Paulo (GMT-3)</option>
             <option value="UTC">UTC (GMT+0)</option>
