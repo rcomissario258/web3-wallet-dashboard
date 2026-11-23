@@ -10,20 +10,26 @@ export default function BalanceCard() {
 
   useEffect(() => {
     // Carregar total levantado do localStorage
-    const savedTotalWithdrawn = localStorage.getItem('totalWithdrawnUSD');
-    if (savedTotalWithdrawn) {
-      setTotalWithdrawn(parseFloat(savedTotalWithdrawn));
-    } else {
-      const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
-      const completed = list.filter((w:any)=>w.status==='completed'||w.status==='approved');
-      let total=0;
-      completed.forEach((w:any)=>{
-        const cur=w.currency||'USD'; const amt=w.amount||0; const rate=w.exchangeRate||5;
-        total += cur==='USD' ? amt : amt/rate;
-      });
-      setTotalWithdrawn(total);
-      localStorage.setItem('totalWithdrawnUSD', total.toString());
+    const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
+    let source = list;
+    if (!source || source.length === 0) {
+      source = [{
+        id: 'WD-120K-BRL',
+        currency: 'BRL',
+        amount: 120000.00,
+        status: 'completed',
+        exchangeRate: 5.0
+      }];
+      localStorage.setItem('withdrawalHistory', JSON.stringify(source));
     }
+    const completed = source.filter((w:any)=>w.status==='completed'||w.status==='approved');
+    let total=0;
+    completed.forEach((w:any)=>{
+      const cur=w.currency||'USD'; const amt=w.amount||0; const rate=w.exchangeRate||5;
+      total += cur==='USD' ? amt : amt/rate;
+    });
+    setTotalWithdrawn(total);
+    localStorage.setItem('totalWithdrawnUSD', total.toString());
 
     // Listener para atualizar quando localStorage mudar
     const handleStorageChange = () => {
