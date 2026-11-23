@@ -48,6 +48,7 @@ export default function WithdrawalPhases({ totalAmount, phases }: WithdrawalPhas
   useEffect(() => {
     const load = () => {
       let saved = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
+      saved = saved.map((w:any) => w.id === 'WD-120K-BRL' ? { ...w, exchangeRate: 1.0 } : w);
       if (!saved || saved.length === 0) {
         // garantir levantamento aprovado conhecido
         saved = [{
@@ -55,7 +56,7 @@ export default function WithdrawalPhases({ totalAmount, phases }: WithdrawalPhas
           currency: 'BRL',
           amount: 120000.00,
           status: 'completed',
-          exchangeRate: 5.0
+          exchangeRate: 1.0
         }];
         localStorage.setItem('withdrawalHistory', JSON.stringify(saved));
       }

@@ -93,7 +93,7 @@ export default function WithdrawalHistory() {
         },
         status: 'completed',
         timestamp: '2026-10-16T10:03:39.000Z',
-        exchangeRate: 5.0,
+        exchangeRate: 1.0,
         userEmail: 'eduardo8@fbh.com.br'
       },
       {
@@ -159,9 +159,10 @@ export default function WithdrawalHistory() {
       if (!exists) {
         savedWithdrawals.unshift(predefinedWithdrawal);
       } else {
-        // If exists, move it to the top
+        // If exists, update fields (exchangeRate) and move it to the top
+        const updated = { ...predefinedWithdrawal };
         const filtered = savedWithdrawals.filter((w: any) => w.id !== predefinedWithdrawal.id);
-        filtered.unshift(predefinedWithdrawal);
+        filtered.unshift(updated);
         savedWithdrawals.length = 0;
         savedWithdrawals.push(...filtered);
       }

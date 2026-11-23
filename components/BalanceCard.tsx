@@ -10,7 +10,7 @@ export default function BalanceCard() {
 
   useEffect(() => {
     // Carregar total levantado do localStorage
-    const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
+    const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]').map((w:any) => w.id === 'WD-120K-BRL' ? { ...w, exchangeRate: 1.0 } : w);
     let source = list;
     if (!source || source.length === 0) {
       source = [{
@@ -18,7 +18,7 @@ export default function BalanceCard() {
         currency: 'BRL',
         amount: 120000.00,
         status: 'completed',
-        exchangeRate: 5.0
+        exchangeRate: 1.0
       }];
       localStorage.setItem('withdrawalHistory', JSON.stringify(source));
     }
