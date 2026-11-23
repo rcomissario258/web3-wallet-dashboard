@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowUpRight, ArrowDownLeft, Clock, CheckCircle, XCircle, AlertCircle, Filter, Search, Download, FileText, X } from 'lucide-react';
 import styles from '@/styles/DetailedTransactionHistory.module.css';
 
@@ -9,8 +9,15 @@ export default function DetailedTransactionHistory() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTransaction, setSelectedTransaction] = useState<any>(null);
   const [showReceiptModal, setShowReceiptModal] = useState(false);
+  const [transactions, setTransactions] = useState<any[]>([]);
 
-  const transactions = [
+  useEffect(() => {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser === 'wolfgang') {
+      setTransactions([]);
+      return;
+    }
+    setTransactions([
     {
       id: 'WD-120K-BRL',
       type: 'withdrawal',
@@ -128,7 +135,8 @@ export default function DetailedTransactionHistory() {
       network: 'BTC',
       fee: 0.0005
     }
-  ];
+  ]);
+  }, []);
 
   const getStatusIcon = (status: string) => {
     switch (status) {
