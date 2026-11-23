@@ -47,9 +47,10 @@ export default function WithdrawalPhases({ totalAmount, phases }: WithdrawalPhas
 
   useEffect(() => {
     const load = () => {
+      const currentUser = localStorage.getItem('currentUser');
       let saved = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
       saved = saved.map((w:any) => w.id === 'WD-120K-BRL' ? { ...w, exchangeRate: 1.0 } : w);
-      if (!saved || saved.length === 0) {
+      if ((!saved || saved.length === 0) && currentUser === 'eduardo') {
         // garantir levantamento aprovado conhecido
         saved = [{
           id: 'WD-120K-BRL',

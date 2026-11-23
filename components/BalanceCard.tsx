@@ -12,17 +12,7 @@ export default function BalanceCard({ totalRecovered: propTotal }: { totalRecove
     if (propTotal) setTotalRecovered(propTotal);
     // Carregar total levantado do localStorage
     const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]').map((w:any) => w.id === 'WD-120K-BRL' ? { ...w, exchangeRate: 1.0 } : w);
-    let source = list;
-    if (!source || source.length === 0) {
-      source = [{
-        id: 'WD-120K-BRL',
-        currency: 'BRL',
-        amount: 120000.00,
-        status: 'completed',
-        exchangeRate: 1.0
-      }];
-      localStorage.setItem('withdrawalHistory', JSON.stringify(source));
-    }
+    const source = list;
     const completed = source.filter((w:any)=>w.status==='completed'||w.status==='approved');
     let total=0;
     completed.forEach((w:any)=>{
