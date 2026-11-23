@@ -50,7 +50,7 @@ export default function BalanceCard({ totalRecovered: propTotal }: { totalRecove
   }, []);
 
   // Calcular valor disponível (total recuperado - total levantado)
-  const availableBalance = totalRecovered - totalWithdrawn;
+  const availableBalance = Math.max(0, totalRecovered - totalWithdrawn);
 
   const balanceData = [
     {

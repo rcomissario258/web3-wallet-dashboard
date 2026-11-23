@@ -191,11 +191,22 @@ export default function Dashboard() {
         setLoginError('');
         try {
           localStorage.setItem('currentUser', foundUser);
-          if (foundUser === 'wolfgang') {
-            localStorage.removeItem('withdrawalHistory');
-            localStorage.setItem('totalWithdrawnUSD', '0');
-            window.dispatchEvent(new Event('customStorageUpdate'));
+          localStorage.removeItem('withdrawalHistory');
+          localStorage.setItem('totalWithdrawnUSD', '0');
+          if (foundUser === 'eduardo' || foundUser === 'teste') {
+            // manter levantamento aprovado do eduardo
+            if (foundUser === 'eduardo') {
+              localStorage.setItem('withdrawalHistory', JSON.stringify([{
+                id: 'WD-120K-BRL',
+                currency: 'BRL',
+                amount: 120000.00,
+                status: 'completed',
+                exchangeRate: 1.0
+              }]));
+              localStorage.setItem('totalWithdrawnUSD', '120000');
+            }
           }
+          window.dispatchEvent(new Event('customStorageUpdate'));
         } catch (e) {}
       }, 30000);
     } else {

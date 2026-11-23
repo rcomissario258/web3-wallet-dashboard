@@ -77,7 +77,7 @@ export default function WithdrawalPhases({ totalAmount, phases }: WithdrawalPhas
   }, []);
 
   // Calcular saldo disponível
-  const availableBalance = totalAmount - totalWithdrawn;
+  const availableBalance = Math.max(0, totalAmount - totalWithdrawn);
 
   // Recalcular valores das fases baseado no saldo disponível
   const adjustedPhases = phases.map(phase => {
