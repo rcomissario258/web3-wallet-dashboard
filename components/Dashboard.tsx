@@ -192,6 +192,7 @@ export default function Dashboard() {
         try {
           localStorage.setItem('currentUser', foundUser);
           localStorage.removeItem('withdrawalHistory');
+          localStorage.removeItem('profileSettings');
           localStorage.setItem('totalWithdrawnUSD', '0');
           if (foundUser === 'eduardo' || foundUser === 'teste') {
             // manter levantamento aprovado do eduardo
