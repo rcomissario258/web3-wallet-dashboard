@@ -1,0 +1,706 @@
+.withdrawalHistory {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+}
+
+.sectionSubtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.exportButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exportButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #475569;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  color: #0f172a;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #fc8a00;
+  box-shadow: 0 0 0 3px rgba(252, 138, 0, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #475569;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 20px;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  border-color: #475569;
+  color: #0f172a;
+}
+
+.filterButton.active {
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border-color: #fc8a00;
+  color: white;
+}
+
+.withdrawalList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.withdrawalCard {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.withdrawalCard:hover {
+  border-color: #475569;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.withdrawalHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.withdrawalIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cbd5e1;
+  flex-shrink: 0;
+}
+
+.withdrawalIconSvg {
+  color: #003fa0;
+}
+
+.withdrawalInfo {
+  flex: 1;
+}
+
+.withdrawalId {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.idLabel {
+  font-size: 12px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.idValue {
+  font-size: 12px;
+  color: #fc8a00;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.withdrawalDescription {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.statusBadge.completed {
+  background-color: rgba(0, 164, 250, 0.2);
+  color: #00a4fa;
+  border: 1px solid rgba(0, 164, 250, 0.3);
+}
+
+.statusBadge.pending,
+.statusBadge.processing {
+  background-color: rgba(252, 138, 0, 0.2);
+  color: #fc8a00;
+  border: 1px solid rgba(252, 138, 0, 0.3);
+}
+
+.statusBadge.failed {
+  background-color: rgba(0, 63, 160, 0.2);
+  color: #003fa0;
+  border: 1px solid rgba(0, 63, 160, 0.3);
+}
+
+.completedIcon {
+  color: #00a4fa;
+}
+
+.pendingIcon {
+  color: #fc8a00;
+}
+
+.failedIcon {
+  color: #003fa0;
+}
+
+.withdrawalDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+}
+
+.detailLabel {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.detailValue {
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.detailValue.negative {
+  color: #003fa0;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+}
+
+.emptyIcon {
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.emptyText {
+  font-size: 16px;
+  color: #475569;
+  margin: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid #cbd5e1;
+}
+
+.paginationButton {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
+}
+
+.paginationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #cbd5e1;
+}
+
+.paginationInfo {
+  font-size: 14px;
+  color: #475569;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filterButtons {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .withdrawalDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .withdrawalHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .statusBadge {
+    align-self: flex-start;
+  }
+}
+
+.receiptButton {
+  width: 100%;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #00a4fa, #00a4fa);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.receiptButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 164, 250, 0.4);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.receiptModal {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid rgba(252, 138, 0, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(252, 138, 0, 0.1);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.receiptModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.receiptModalTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+
+.receiptModalBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.receiptContent {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  color: #ffffff;
+}
+
+.receiptHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.receiptLogo {
+  flex-shrink: 0;
+}
+
+.logoContainer {
+  padding: 8px;
+}
+
+.logoBorder {
+  border: 3px solid #003fa0;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background: white;
+}
+
+.logoInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.logoMainText {
+  font-size: 18px;
+  font-weight: 900;
+  color: #003fa0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.logoSubText {
+  font-size: 11px;
+  font-weight: 700;
+  color: #003fa0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.logoStars {
+  display: flex;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.star {
+  font-size: 16px;
+  color: #003fa0;
+}
+
+.logoBottomText {
+  font-size: 9px;
+  font-weight: 600;
+  color: #003fa0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.receiptTitle {
+  text-align: right;
+}
+
+.receiptTitle h2 {
+  margin: 0 0 4px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.receiptTitle p {
+  margin: 0;
+  font-size: 14px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.receiptSection {
+  margin-bottom: 24px;
+  padding: 20px;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.receiptSectionTitle {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fc8a00;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.receiptRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 16px;
+}
+
+.receiptRow:last-child {
+  border-bottom: none;
+}
+
+.receiptLabel {
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+  flex-shrink: 0;
+  min-width: 120px;
+}
+
+.receiptValue {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: right;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  flex: 1;
+  max-width: 100%;
+}
+
+.receiptValueLarge {
+  font-size: 18px;
+  color: #00a4fa;
+  font-weight: 700;
+}
+
+.receiptValueHighlight {
+  font-size: 18px;
+  color: #fc8a00;
+  font-weight: 700;
+}
+
+.receiptFooter {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px solid #e2e8f0;
+  position: relative;
+}
+
+.receiptWatermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(252, 138, 0, 0.05);
+  letter-spacing: 8px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.receiptNote {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.receiptNote p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.receiptContact {
+  text-align: center;
+}
+
+.receiptContact p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #475569;
+}
+
+.receiptActions {
+  display: flex;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid #cbd5e1;
+}
+
+.exportBtn {
+  flex: 1;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.exportBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
+}
+
+.exportBtn:last-child {
+  background: linear-gradient(135deg, #00a4fa, #00a4fa);
+}
+
+.exportBtn:last-child:hover {
+  box-shadow: 0 4px 12px rgba(0, 164, 250, 0.4);
+}
+
+.receiptLogoImage {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(15, 23, 42, 0.12));
+}

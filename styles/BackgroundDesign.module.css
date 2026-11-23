@@ -17,7 +17,7 @@
 .circle1 {
   width: 300px;
   height: 300px;
-  background-color: #3b82f6;
+  background-color: #fc8a00;
   top: -50px;
   left: -100px;
 }
@@ -25,7 +25,7 @@
 .circle2 {
   width: 200px;
   height: 200px;
-  background-color: #10b981;
+  background-color: #00a4fa;
   bottom: 100px;
   right: -50px;
 }
@@ -33,7 +33,7 @@
 .circle3 {
   width: 150px;
   height: 150px;
-  background-color: #8b5cf6;
+  background-color: #00a4fa;
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
@@ -42,7 +42,7 @@
 .square {
   width: 100px;
   height: 100px;
-  background-color: #f59e0b;
+  background-color: #fc8a00;
   top: 20%;
   right: 15%;
   transform: rotate(45deg);
@@ -53,7 +53,7 @@
   height: 0;
   border-left: 100px solid transparent;
   border-right: 100px solid transparent;
-  border-bottom: 173px solid #ec4899;
+  border-bottom: 173px solid #003fa0;
   opacity: 0.08;
   bottom: 10%;
   left: 20%;

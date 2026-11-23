@@ -1,8 +1,8 @@
 .profileSettings {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 16px;
   padding: 32px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -14,14 +14,14 @@
   margin: 0 0 8px 0;
   font-size: 24px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.025em;
 }
 
 .subtitle {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .container {
@@ -35,7 +35,7 @@
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 8px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .tabButton {
@@ -46,7 +46,7 @@
   background: none;
   border: none;
   border-radius: 10px 10px 0 0;
-  color: #94a3b8;
+  color: #475569;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
@@ -55,12 +55,12 @@
 }
 
 .tabButton:hover {
-  background-color: #334155;
-  color: #f8fafc;
+  background-color: #cbd5e1;
+  color: #0f172a;
 }
 
 .tabButton.active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   color: white;
 }
 
@@ -84,9 +84,9 @@
   margin: 0 0 20px 0;
   font-size: 18px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
   padding-bottom: 12px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .avatarSection {
@@ -95,9 +95,9 @@
   gap: 24px;
   margin-bottom: 32px;
   padding: 24px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 12px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .avatarContainer {
@@ -108,14 +108,26 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #10b981);
+  background: linear-gradient(135deg, #fc8a00, #00a4fa);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 32px;
   font-weight: bold;
   color: white;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.3);
+}
+
+.avatarImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #cbd5e1;
+}
+
+.fileInput {
+  display: none;
 }
 
 .avatarButton {
@@ -125,8 +137,8 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  border: 2px solid #1e293b;
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border: 2px solid #ffffff;
   color: white;
   cursor: pointer;
   display: flex;
@@ -137,7 +149,7 @@
 
 .avatarButton:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .avatarInfo {
@@ -148,13 +160,13 @@
   margin: 0 0 4px 0;
   font-size: 20px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .avatarStatus {
   margin: 0 0 12px 0;
   font-size: 14px;
-  color: #10b981;
+  color: #00a4fa;
   font-weight: 600;
 }
 
@@ -163,7 +175,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border: none;
   border-radius: 8px;
   color: white;
@@ -175,7 +187,7 @@
 
 .uploadButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .formGrid {
@@ -193,29 +205,29 @@
 .formLabel {
   font-size: 13px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #475569;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .formInput {
   padding: 14px 16px;
-  background-color: #1e293b;
-  border: 2px solid #334155;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
   border-radius: 10px;
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 16px;
   transition: all 0.3s ease;
 }
 
 .formInput:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #fc8a00;
+  box-shadow: 0 0 0 3px rgba(252, 138, 0, 0.1);
 }
 
 .formInput::placeholder {
-  color: #64748b;
+  color: #475569;
 }
 
 .inputWithIcon {
@@ -227,7 +239,7 @@
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: #94a3b8;
+  color: #475569;
 }
 
 .inputWithIcon .formInput {
@@ -241,7 +253,7 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #94a3b8;
+  color: #475569;
   cursor: pointer;
   padding: 4px;
   border-radius: 4px;
@@ -249,8 +261,8 @@
 }
 
 .togglePassword:hover {
-  color: #f8fafc;
-  background-color: #334155;
+  color: #0f172a;
+  background-color: #cbd5e1;
 }
 
 .twoFactorSection {
@@ -258,8 +270,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, rgba(0, 164, 250, 0.1), rgba(0, 164, 250, 0.1));
+  border: 1px solid rgba(0, 164, 250, 0.3);
   border-radius: 12px;
   margin-bottom: 24px;
 }
@@ -273,7 +285,7 @@
 .twoFactorIcon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #00a4fa, #00a4fa);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -291,13 +303,13 @@
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .twoFactorDescription {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .twoFactorStatus {
@@ -312,7 +324,7 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #00a4fa, #00a4fa);
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
@@ -322,9 +334,9 @@
 .manageButton {
   padding: 8px 16px;
   background: none;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
-  color: #94a3b8;
+  color: #475569;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -332,22 +344,22 @@
 }
 
 .manageButton:hover {
-  background-color: #334155;
-  color: #f8fafc;
+  background-color: #cbd5e1;
+  color: #0f172a;
 }
 
 .securityDevices {
   padding: 24px;
-  background-color: #0f172a;
+  background-color: #f8fafc;
   border-radius: 12px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .devicesTitle {
   margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .deviceList {
@@ -361,9 +373,9 @@
   align-items: center;
   gap: 16px;
   padding: 16px;
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   transition: all 0.3s ease;
 }
 
@@ -372,7 +384,7 @@
 }
 
 .deviceIcon {
-  color: #94a3b8;
+  color: #475569;
 }
 
 .deviceInfo {
@@ -385,18 +397,18 @@
 .deviceName {
   font-size: 14px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .deviceLocation {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .deviceStatus {
   font-size: 12px;
   font-weight: 600;
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .notificationSettings {
@@ -410,9 +422,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 12px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   transition: all 0.3s ease;
 }
 
@@ -427,20 +439,20 @@
 }
 
 .notificationIcon {
-  color: #3b82f6;
+  color: #fc8a00;
 }
 
 .notificationTitle {
   margin: 0 0 4px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .notificationDescription {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .toggle {
@@ -463,7 +475,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #334155;
+  background-color: #cbd5e1;
   transition: 0.3s;
   border-radius: 24px;
 }
@@ -481,7 +493,7 @@
 }
 
 .toggle input:checked + .toggleSlider {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
 }
 
 .toggle input:checked + .toggleSlider:before {
@@ -499,9 +511,9 @@
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .paymentMethods {
@@ -516,9 +528,9 @@
   align-items: center;
   gap: 16px;
   padding: 20px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 12px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   transition: all 0.3s ease;
 }
 
@@ -530,7 +542,7 @@
 .paymentIcon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -546,18 +558,18 @@
   margin: 0 0 4px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .paymentDescription {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .paymentBadge {
   padding: 6px 12px;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #00a4fa, #00a4fa);
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
@@ -566,7 +578,7 @@
 
 .verifyButton {
   padding: 8px 16px;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border: none;
   border-radius: 8px;
   color: white;
@@ -578,7 +590,7 @@
 
 .verifyButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .addPaymentButton {
@@ -587,8 +599,8 @@
   justify-content: center;
   gap: 8px;
   padding: 16px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  border: 2px dashed #334155;
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border: 2px dashed #cbd5e1;
   border-radius: 12px;
   color: white;
   font-size: 16px;
@@ -598,9 +610,9 @@
 }
 
 .addPaymentButton:hover {
-  border-color: #3b82f6;
+  border-color: #fc8a00;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .paymentHistory {
@@ -614,9 +626,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .historyInfo {
@@ -627,20 +639,20 @@
 
 .historyDate {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
   font-weight: 600;
 }
 
 .historyDescription {
   font-size: 14px;
-  color: #f8fafc;
+  color: #0f172a;
   font-weight: 600;
 }
 
 .historyAmount {
   font-size: 16px;
   font-weight: 700;
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .footer {
@@ -648,7 +660,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 24px;
-  border-top: 1px solid #334155;
+  border-top: 1px solid #cbd5e1;
 }
 
 .saveButton {
@@ -656,7 +668,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border: none;
   border-radius: 10px;
   color: white;
@@ -668,7 +680,7 @@
 
 .saveButton:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .saveButton:disabled {
@@ -679,7 +691,7 @@
 .spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.18);
   border-top: 2px solid white;
   border-radius: 50%;
   animation: rotate 1s linear infinite;
@@ -699,10 +711,10 @@
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, rgba(0, 164, 250, 0.2), rgba(0, 164, 250, 0.2));
+  border: 1px solid rgba(0, 164, 250, 0.3);
   border-radius: 10px;
-  color: #10b981;
+  color: #00a4fa;
   font-size: 14px;
   font-weight: 600;
   animation: fadeIn 0.3s ease;

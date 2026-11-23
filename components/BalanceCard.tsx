@@ -1,33 +1,64 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { TrendingUp, TrendingDown, DollarSign, Wallet, ArrowUpRight } from 'lucide-react';
 import styles from '@/styles/BalanceCard.module.css';
 
 export default function BalanceCard() {
+  const [totalRecovered, setTotalRecovered] = useState(4600030);
+  const [totalWithdrawn, setTotalWithdrawn] = useState(0);
+
+  useEffect(() => {
+    // Carregar total levantado do localStorage
+    const savedTotalWithdrawn = localStorage.getItem('totalWithdrawnUSD');
+    if (savedTotalWithdrawn) {
+      setTotalWithdrawn(parseFloat(savedTotalWithdrawn));
+    }
+
+    // Listener para atualizar quando localStorage mudar
+    const handleStorageChange = () => {
+      const updatedTotalWithdrawn = localStorage.getItem('totalWithdrawnUSD');
+      if (updatedTotalWithdrawn) {
+        setTotalWithdrawn(parseFloat(updatedTotalWithdrawn));
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('customStorageUpdate', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('customStorageUpdate', handleStorageChange);
+    };
+  }, []);
+
+  // Calcular valor disponível (total recuperado - total levantado)
+  const availableBalance = totalRecovered - totalWithdrawn;
+
   const balanceData = [
     {
       title: 'SALDO DISPONÍVEL',
-      amount: '0.08',
+      amount: availableBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
       icon: Wallet,
       change: '+2.5%',
       isPositive: true,
-      color: '#3b82f6'
+      color: '#fc8a00'
     },
     {
       title: 'TOTAL RECUPERADO',
-      amount: '4,600,030.00',
+      amount: totalRecovered.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
       icon: DollarSign,
       change: '+127.8%',
       isPositive: true,
-      color: '#10b981'
+      color: '#00a4fa'
     },
     {
-      title: 'VALOR INVESTIDO',
-      amount: '1,000,000.122',
+      title: 'TOTAL LEVANTADO',
+      amount: totalWithdrawn.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
       icon: TrendingUp,
-      change: '+460.0%',
+      change: '+0.0%',
       isPositive: true,
-      color: '#f59e0b'
+      color: '#fc8a00'
     }
   ];
 
@@ -42,8 +73,8 @@ export default function BalanceCard() {
                 <Icon size={24} style={{ color: card.color }} />
               </div>
               <div className={styles.changeBadge} style={{ 
-                backgroundColor: card.isPositive ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
-                color: card.isPositive ? '#10b981' : '#ef4444'
+                backgroundColor: card.isPositive ? 'rgba(0, 164, 250, 0.1)' : 'rgba(0, 63, 160, 0.1)',
+                color: card.isPositive ? '#00a4fa' : '#003fa0'
               }}>
                 {card.isPositive ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
                 <span>{card.change}</span>

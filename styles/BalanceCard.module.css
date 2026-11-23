@@ -6,13 +6,17 @@
 }
 
 .balanceCard {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 16px;
   padding: 24px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
 }
 
 .balanceCard::before {
@@ -22,14 +26,34 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--card-color, #3b82f6);
+  background: var(--card-color, #fc8a00);
   opacity: 0.8;
 }
 
+.balanceCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.balanceCard:hover::after {
+  opacity: 1;
+}
+
 .balanceCard:hover {
+  -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  border-color: var(--card-color, #3b82f6);
+  -webkit-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: var(--card-color, #fc8a00);
 }
 
 .cardHeader {
@@ -47,10 +71,15 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .balanceCard:hover .iconContainer {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .changeBadge {
@@ -68,7 +97,7 @@
   margin: 0 0 12px 0;
   font-size: 13px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #475569;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -83,14 +112,23 @@
 .currencySymbol {
   font-size: 16px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .amount {
   font-size: 28px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.025em;
+  text-shadow: 0 0 20px rgba(15, 23, 42, 0.3);
+  -webkit-text-shadow: 0 0 20px rgba(15, 23, 42, 0.3);
+  transition: text-shadow 0.3s ease;
+  -webkit-transition: text-shadow 0.3s ease;
+}
+
+.balanceCard:hover .amount {
+  text-shadow: 0 0 30px rgba(15, 23, 42, 0.5);
+  -webkit-text-shadow: 0 0 30px rgba(15, 23, 42, 0.5);
 }
 
 .cardFooter {
@@ -98,21 +136,21 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 16px;
-  border-top: 1px solid #334155;
+  border-top: 1px solid #cbd5e1;
 }
 
 .lastUpdate {
   font-size: 12px;
-  color: #64748b;
+  color: #475569;
 }
 
 .arrowIcon {
-  color: #64748b;
+  color: #475569;
   transition: all 0.3s ease;
 }
 
 .balanceCard:hover .arrowIcon {
-  color: var(--card-color, #3b82f6);
+  color: var(--card-color, #fc8a00);
   transform: translateX(4px);
 }
 

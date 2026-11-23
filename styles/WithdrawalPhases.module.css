@@ -1,9 +1,9 @@
 .withdrawalPhases {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 16px;
   padding: 32px;
   margin-bottom: 24px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -15,14 +15,14 @@
   margin: 0 0 8px 0;
   font-size: 18px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.025em;
 }
 
 .sectionSubtitle {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .totalDisplay {
@@ -30,16 +30,49 @@
   align-items: center;
   gap: 20px;
   padding: 24px;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #fc8a00 0%, #e67e00 100%);
   border-radius: 12px;
   margin-bottom: 32px;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.3);
+  -webkit-box-shadow: 0 4px 12px rgba(252, 138, 0, 0.3);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+.totalDisplay::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.totalDisplay:hover::before {
+  opacity: 1;
+}
+
+.totalDisplay:hover {
+  -webkit-transform: translateY(-2px) scale(1.01);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(252, 138, 0, 0.4);
+  -webkit-box-shadow: 0 8px 20px rgba(252, 138, 0, 0.4);
 }
 
 .totalIcon {
   width: 64px;
   height: 64px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.12);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -56,7 +89,7 @@
 
 .totalLabel {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 600;
 }
 
@@ -74,28 +107,51 @@
 }
 
 .phaseCard {
-  background-color: #1e293b;
-  border: 2px solid #334155;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
   border-radius: 12px;
   padding: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+.phaseCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+  transition: left 0.5s ease;
+  -webkit-transition: left 0.5s ease;
+}
+
+.phaseCard:hover::before {
+  left: 100%;
 }
 
 .phaseCard:hover {
+  -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .phaseCard.available {
-  border-color: #10b981;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, #1e293b 100%);
+  border-color: #00a4fa;
+  background: linear-gradient(135deg, rgba(0, 164, 250, 0.1) 0%, #ffffff 100%);
 }
 
 .phaseCard.available:hover {
-  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 164, 250, 0.3);
+  -webkit-box-shadow: 0 8px 16px rgba(0, 164, 250, 0.3);
 }
 
 .phaseCard.locked {
@@ -104,8 +160,10 @@
 }
 
 .phaseCard.locked:hover {
+  -webkit-transform: none;
   transform: none;
   box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 .phaseHeader {
@@ -122,18 +180,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #334155;
-  color: #94a3b8;
+  background-color: #cbd5e1;
+  color: #475569;
 }
 
 .phaseIcon.availableIcon {
-  background-color: rgba(16, 185, 129, 0.2);
-  color: #10b981;
+  background-color: rgba(0, 164, 250, 0.2);
+  color: #00a4fa;
 }
 
 .phaseIcon.lockedIcon {
-  background-color: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
+  background-color: rgba(0, 63, 160, 0.2);
+  color: #003fa0;
 }
 
 .phaseInfo {
@@ -144,13 +202,13 @@
   margin: 0 0 4px 0;
   font-size: 18px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .phaseDescription {
   margin: 0;
   font-size: 13px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .phaseAmount {
@@ -158,22 +216,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background-color: #0f172a;
+  background-color: #f8fafc;
   border-radius: 8px;
   margin-bottom: 16px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .amountLabel {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
   font-weight: 600;
 }
 
 .amountValue {
   font-size: 20px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .phaseStatus {
@@ -191,15 +249,15 @@
 }
 
 .statusBadge.availableStatus {
-  background-color: rgba(16, 185, 129, 0.2);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background-color: rgba(0, 164, 250, 0.2);
+  color: #00a4fa;
+  border: 1px solid rgba(0, 164, 250, 0.3);
 }
 
 .statusBadge.lockedStatus {
-  background-color: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background-color: rgba(0, 63, 160, 0.2);
+  color: #003fa0;
+  border: 1px solid rgba(0, 63, 160, 0.3);
 }
 
 .phaseAction {
@@ -208,17 +266,44 @@
   justify-content: center;
   gap: 8px;
   padding: 12px;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #00a4fa, #00a4fa);
   border-radius: 8px;
   color: white;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.phaseAction::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  -webkit-transition: width 0.6s ease, height 0.6s ease;
+}
+
+.phaseAction:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .phaseAction:hover {
+  -webkit-transform: scale(1.02);
   transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 164, 250, 0.4);
+  -webkit-box-shadow: 0 4px 12px rgba(0, 164, 250, 0.4);
 }
 
 .actionText {

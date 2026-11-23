@@ -38,28 +38,28 @@ export default function UnlockPhases() {
       percentage: 100,
       amount: 11500.08,
       status: 'PAGO',
-      description: 'Pagamento em processo pela AUTOTRADE, AI',
+      description: 'Pagamento em processo pela GINCANA, AI',
       content: {
         type: 'phase',
         amount: 11500.08,
         status: 'PAGO',
-        description: 'Pagamento em processo pela AUTOTRADE, AI'
+        description: 'Pagamento em processo pela GINCANA, AI'
       }
     },
     {
       id: 2,
       title: 'Fase 2',
-      icon: '🔐',
+      icon: '�',
       subtitle: '50% da Taxa Operacional',
       percentage: 100,
       amount: 11500.07,
       status: 'PAGO',
-      description: 'Pagamento em processo pela AUTOTRADE, AI (Taxa abonatória de 5,750.00$ já paga)',
+      description: 'Pagamento em processo pela GINCANA, AI (Taxa abonatória de 5,750.00$ já paga)',
       content: {
         type: 'phase',
         amount: 11500.07,
         status: 'PAGO',
-        description: 'Pagamento em processo pela AUTOTRADE, AI (Taxa abonatória de 5,750.00$ já paga)'
+        description: 'Pagamento em processo pela GINCANA, AI (Taxa abonatória de 5,750.00$ já paga)'
       }
     },
     {

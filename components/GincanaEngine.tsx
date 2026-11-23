@@ -1,14 +1,14 @@
 'use client';
 
-import styles from '@/styles/AutotradeEngine.module.css';
+import styles from '@/styles/GincanaEngine.module.css';
 
-export default function AutotradeEngine() {
+export default function GincanaEngine() {
   return (
-    <div className={styles.autotradeEngine}>
+    <div className={styles.gincanaEngine}>
       <div className={styles.engineHeader}>
         <div className={styles.engineIcon}>🤖</div>
         <div className={styles.engineTitle}>
-          <h3>AUTOTRADE</h3>
+          <h3>GINCANA</h3>
           <span className={styles.engineStatus}>Status: ● Sistema activo</span>
         </div>
       </div>

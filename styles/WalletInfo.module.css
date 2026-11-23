@@ -1,5 +1,5 @@
 .walletInfo {
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
   padding: 24px;
   margin-bottom: 24px;
@@ -18,14 +18,14 @@
 }
 
 .infoItem {
-  background-color: #2d3748;
+  background-color: #e2e8f0;
   border-radius: 6px;
   padding: 16px;
 }
 
 .infoLabel {
   font-size: 14px;
-  color: #a0aec0;
+  color: #475569;
   margin-bottom: 8px;
 }
 
@@ -42,6 +42,6 @@
 
 .balanceSymbol {
   font-size: 16px;
-  color: #a0aec0;
+  color: #475569;
   margin-left: 4px;
 }

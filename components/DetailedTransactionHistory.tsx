@@ -1,14 +1,68 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowUpRight, ArrowDownLeft, Clock, CheckCircle, XCircle, AlertCircle, Filter, Search, Download } from 'lucide-react';
+import { ArrowUpRight, ArrowDownLeft, Clock, CheckCircle, XCircle, AlertCircle, Filter, Search, Download, FileText, X } from 'lucide-react';
 import styles from '@/styles/DetailedTransactionHistory.module.css';
 
 export default function DetailedTransactionHistory() {
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTransaction, setSelectedTransaction] = useState<any>(null);
+  const [showReceiptModal, setShowReceiptModal] = useState(false);
 
   const transactions = [
+    {
+      id: 'WD-120K-BRL',
+      type: 'withdrawal',
+      amount: 120000.00,
+      currency: 'BRL',
+      status: 'completed',
+      date: '2026-10-16T10:03:39',
+      description: 'Levantamento - Brasil Bitcoin',
+      from: 'Eduardo Oliveira',
+      to: 'TYcDTj5PNTnorhehnkCEcxwRLMzSBLXawD',
+      network: 'Tron',
+      fee: 0.00
+    },
+    {
+      id: 'WD-70K-BRL',
+      type: 'withdrawal',
+      amount: 70000.00,
+      currency: 'BRL',
+      status: 'pending_approval',
+      date: '2026-10-10T14:30:00',
+      description: 'Levantamento - Brasil Bitcoin',
+      from: 'Eduardo Oliveira',
+      to: 'TYcDTj5PNTnorhehnkCEcxwRLMzSBLXawD',
+      network: 'Tron',
+      fee: 0.00
+    },
+    {
+      id: 'WD-50K-BRL',
+      type: 'withdrawal',
+      amount: 50000.00,
+      currency: 'BRL',
+      status: 'pending_approval',
+      date: '2026-10-09T10:30:00',
+      description: 'Levantamento - BRADESCO',
+      from: 'Eduardo Oliveira',
+      to: 'BRADESCO - Agência N/A, Conta N/A',
+      network: 'Transferência Bancária',
+      fee: 0.00
+    },
+    {
+      id: 'WD-150K-BRL',
+      type: 'withdrawal',
+      amount: 150000.00,
+      currency: 'BRL',
+      status: 'pending_approval',
+      date: '2026-10-09T13:18:00',
+      description: 'Levantamento - 1ª Fase',
+      from: 'Eduardo Oliveira',
+      to: 'bc1qttgzghlagrncvhkmu9zqh9jn99f68e6rfn7rzc',
+      network: 'BTC',
+      fee: 0.00
+    },
     {
       id: 'TXN-001',
       type: 'deposit',
@@ -17,7 +71,7 @@ export default function DetailedTransactionHistory() {
       status: 'completed',
       date: '2024-09-21T14:30:00',
       description: 'Pagamento Fase 1 - Taxa Operacional',
-      from: 'Autotrade AI',
+      from: 'GINCANA',
       to: 'Eduardo Oliveira',
       network: 'Bank Transfer',
       fee: 25.00
@@ -30,7 +84,7 @@ export default function DetailedTransactionHistory() {
       status: 'completed',
       date: '2024-09-21T15:45:00',
       description: 'Taxa Abonatória - Fase 2',
-      from: 'Autotrade AI',
+      from: 'GINCANA',
       to: 'Eduardo Oliveira',
       network: 'Bank Transfer',
       fee: 15.00
@@ -82,6 +136,7 @@ export default function DetailedTransactionHistory() {
         return <CheckCircle size={16} className={styles.completedIcon} />;
       case 'pending':
       case 'processing':
+      case 'pending_approval':
         return <Clock size={16} className={styles.pendingIcon} />;
       case 'failed':
         return <XCircle size={16} className={styles.failedIcon} />;
@@ -98,11 +153,41 @@ export default function DetailedTransactionHistory() {
         return 'Pendente';
       case 'processing':
         return 'Processando';
+      case 'pending_approval':
+        return 'Pendente de aprovação';
       case 'failed':
         return 'Falhou';
       default:
         return status;
     }
+  };
+
+  const getCurrencySymbol = (currency: string) => {
+    const symbols: { [key: string]: string } = {
+      'USD': '$',
+      'EUR': '€',
+      'GBP': '£',
+      'BRL': 'R$',
+      'BTC': '₿',
+      'ETH': 'Ξ',
+      'USDT': '₮'
+    };
+    return symbols[currency] || currency;
+  };
+
+  const getLocaleForCurrency = (currency: string) => {
+    const localeMap: { [key: string]: string } = {
+      'BRL': 'pt-BR',
+      'EUR': 'pt-PT',
+      'GBP': 'en-GB',
+      'JPY': 'ja-JP',
+      'CNY': 'zh-CN',
+      'KRW': 'ko-KR',
+      'RUB': 'ru-RU',
+      'INR': 'en-IN',
+      'USD': 'en-US'
+    };
+    return localeMap[currency] || 'en-US';
   };
 
   const getTypeIcon = (type: string) => {
@@ -130,6 +215,24 @@ export default function DetailedTransactionHistory() {
       hour: '2-digit',
       minute: '2-digit'
     }).format(date);
+  };
+
+  const openDetailsModal = (transaction: any) => {
+    setSelectedTransaction(transaction);
+  };
+
+  const closeDetailsModal = () => {
+    setSelectedTransaction(null);
+  };
+
+  const openReceiptModal = (transaction: any) => {
+    setSelectedTransaction(transaction);
+    setShowReceiptModal(true);
+  };
+
+  const closeReceiptModal = () => {
+    setShowReceiptModal(false);
+    setSelectedTransaction(null);
   };
 
   return (
@@ -226,7 +329,7 @@ export default function DetailedTransactionHistory() {
                   <span className={styles.detailLabel}>Montante:</span>
                   <span className={`${styles.detailValue} ${transaction.type === 'deposit' ? styles.positive : styles.negative}`}>
                     {transaction.type === 'deposit' ? '+' : '-'}
-                    {transaction.currency} {transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    {getCurrencySymbol(transaction.currency)} {transaction.amount.toLocaleString(getLocaleForCurrency(transaction.currency), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
 
@@ -253,15 +356,27 @@ export default function DetailedTransactionHistory() {
                 <div className={styles.detailRow}>
                   <span className={styles.detailLabel}>Taxa:</span>
                   <span className={styles.detailValue}>
-                    {transaction.currency} {transaction.fee.toFixed(2)}
+                    {getCurrencySymbol(transaction.currency)} {transaction.fee.toLocaleString(getLocaleForCurrency(transaction.currency), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
               </div>
 
               <div className={styles.transactionFooter}>
-                <button className={styles.viewDetailsButton}>
+                <button
+                  className={styles.viewDetailsButton}
+                  onClick={() => openDetailsModal(transaction)}
+                >
                   Ver Detalhes
                 </button>
+                {transaction.status === 'completed' && (
+                  <button
+                    className={styles.receiptButton}
+                    onClick={() => openReceiptModal(transaction)}
+                  >
+                    <FileText size={16} />
+                    <span>Gerar Recibo</span>
+                  </button>
+                )}
               </div>
             </div>
           ))
@@ -279,6 +394,165 @@ export default function DetailedTransactionHistory() {
           Próxima
         </button>
       </div>
+
+      {/* Details Modal */}
+      {selectedTransaction && !showReceiptModal && (
+        <div className={styles.modalOverlay} onClick={closeDetailsModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <h3>Detalhes da Transação</h3>
+              <button className={styles.closeButton} onClick={closeDetailsModal}>
+                <X size={20} />
+              </button>
+            </div>
+            <div className={styles.modalBody}>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>ID:</span>
+                <span className={styles.detailValue}>{selectedTransaction.id}</span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Descrição:</span>
+                <span className={styles.detailValue}>{selectedTransaction.description}</span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Tipo:</span>
+                <span className={styles.detailValue}>
+                  {selectedTransaction.type === 'deposit' ? 'Depósito' : 'Levantamento'}
+                </span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Montante:</span>
+                <span className={`${styles.detailValue} ${selectedTransaction.type === 'deposit' ? styles.positive : styles.negative}`}>
+                  {selectedTransaction.type === 'deposit' ? '+' : '-'}
+                  {getCurrencySymbol(selectedTransaction.currency)} {selectedTransaction.amount.toLocaleString(getLocaleForCurrency(selectedTransaction.currency), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                </span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Data:</span>
+                <span className={styles.detailValue}>{formatDate(selectedTransaction.date)}</span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>De:</span>
+                <span className={styles.detailValue}>{selectedTransaction.from}</span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Para:</span>
+                <span className={styles.detailValue}>{selectedTransaction.to}</span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Rede:</span>
+                <span className={styles.detailValue}>{selectedTransaction.network}</span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Taxa:</span>
+                <span className={styles.detailValue}>
+                  {getCurrencySymbol(selectedTransaction.currency)} {selectedTransaction.fee.toLocaleString(getLocaleForCurrency(selectedTransaction.currency), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                </span>
+              </div>
+              <div className={styles.detailSection}>
+                <span className={styles.detailLabel}>Status:</span>
+                <div className={`${styles.statusBadge} ${styles[selectedTransaction.status]}`}>
+                  {getStatusIcon(selectedTransaction.status)}
+                  <span>{getStatusText(selectedTransaction.status)}</span>
+                </div>
+              </div>
+            </div>
+            {selectedTransaction.status === 'completed' && (
+              <div className={styles.modalFooter}>
+                <button
+                  className={styles.receiptButton}
+                  onClick={() => {
+                    closeDetailsModal();
+                    openReceiptModal(selectedTransaction);
+                  }}
+                >
+                  <FileText size={16} />
+                  <span>Gerar Recibo</span>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Receipt Modal */}
+      {showReceiptModal && selectedTransaction && (
+        <div className={styles.modalOverlay} onClick={closeReceiptModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <h3>Recibo da Transação</h3>
+              <button className={styles.closeButton} onClick={closeReceiptModal}>
+                <X size={20} />
+              </button>
+            </div>
+            <div className={styles.modalBody}>
+              <div className={styles.receiptHeader}>
+                <div className={styles.receiptLogo}>
+                  <img src="/gincana-logo.png" alt="GINCANA" className={styles.receiptLogoImage} />
+                </div>
+              </div>
+              <div className={styles.receiptDetails}>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>ID da Transação:</span>
+                  <span className={styles.receiptValue}>{selectedTransaction.id}</span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Descrição:</span>
+                  <span className={styles.receiptValue}>{selectedTransaction.description}</span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Tipo:</span>
+                  <span className={styles.receiptValue}>
+                    {selectedTransaction.type === 'deposit' ? 'Depósito' : 'Levantamento'}
+                  </span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Montante:</span>
+                  <span className={`${styles.receiptValue} ${selectedTransaction.type === 'deposit' ? styles.positive : styles.negative}`}>
+                    {selectedTransaction.type === 'deposit' ? '+' : '-'}
+                    {getCurrencySymbol(selectedTransaction.currency)} {selectedTransaction.amount.toLocaleString(getLocaleForCurrency(selectedTransaction.currency), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Data:</span>
+                  <span className={styles.receiptValue}>{formatDate(selectedTransaction.date)}</span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>De:</span>
+                  <span className={styles.receiptValue}>{selectedTransaction.from}</span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Para:</span>
+                  <span className={styles.receiptValue}>{selectedTransaction.to}</span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Rede:</span>
+                  <span className={styles.receiptValue}>{selectedTransaction.network}</span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Taxa:</span>
+                  <span className={styles.receiptValue}>
+                    {getCurrencySymbol(selectedTransaction.currency)} {selectedTransaction.fee.toLocaleString(getLocaleForCurrency(selectedTransaction.currency), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                </div>
+                <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>Status:</span>
+                  <div className={`${styles.statusBadge} ${styles[selectedTransaction.status]}`}>
+                    {getStatusIcon(selectedTransaction.status)}
+                    <span>{getStatusText(selectedTransaction.status)}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.modalFooter}>
+              <button className={styles.exportButton}>
+                <Download size={16} />
+                <span>Exportar PDF</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

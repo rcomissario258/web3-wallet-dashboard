@@ -1,15 +1,19 @@
 .investmentsSection {
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
   padding: 24px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .sectionTitle {
   margin: 0 0 24px 0;
   font-size: 20px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
+}
+
+.recoverySection {
+  margin-bottom: 24px;
 }
 
 .investmentsGrid {
@@ -26,15 +30,15 @@
 }
 
 .investmentCard {
-  background-color: #2d3748;
+  background-color: #e2e8f0;
   border-radius: 8px;
   padding: 20px;
-  border: 1px solid #4a5568;
+  border: 1px solid #cbd5e1;
   transition: border-color 0.2s ease;
 }
 
 .investmentCard:hover {
-  border-color: #3b82f6;
+  border-color: #fc8a00;
 }
 
 .cardHeader {
@@ -48,12 +52,12 @@
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .investmentType {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
   background-color: rgba(148, 163, 184, 0.1);
   padding: 4px 8px;
   border-radius: 4px;
@@ -74,21 +78,21 @@
 
 .detailLabel {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .detailValue {
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .profit {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .status {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .investmentActions {
@@ -108,35 +112,35 @@
 }
 
 .btnPrimary {
-  background-color: #3b82f6;
+  background-color: #fc8a00;
   color: white;
 }
 
 .btnPrimary:hover {
-  background-color: #2563eb;
+  background-color: #e67e00;
 }
 
 .btnSecondary {
-  background-color: #4a5568;
+  background-color: #cbd5e1;
   color: white;
 }
 
 .btnSecondary:hover {
-  background-color: #5a6578;
+  background-color: #cbd5e1;
 }
 
 .summaryCard {
-  background-color: #2d3748;
+  background-color: #e2e8f0;
   border-radius: 8px;
   padding: 20px;
-  border: 1px solid #4a5568;
+  border: 1px solid #cbd5e1;
 }
 
 .summaryTitle {
   margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .summaryGrid {
@@ -165,11 +169,11 @@
 
 .summaryLabel {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .summaryValue {
   font-size: 20px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }

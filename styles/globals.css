@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 :root {
-  --primary-color: #3b82f6;
-  --secondary-color: #10b981;
-  --background-color: #0f172a;
-  --text-color: #f8fafc;
+  --primary-color: #fc8a00;
+  --secondary-color: #00a4fa;
+  --background-color: #f8fafc;
+  --text-color: #0f172a;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
@@ -37,7 +38,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #2563eb;
+  background-color: #e67e00;
 }
 
 .btn-secondary {
@@ -47,5 +48,5 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: #059669;
+  background-color: #00a4fa;
 }

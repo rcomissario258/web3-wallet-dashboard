@@ -1,8 +1,8 @@
 .supportCenter {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 16px;
   padding: 32px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -14,14 +14,14 @@
   margin: 0 0 8px 0;
   font-size: 24px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.025em;
 }
 
 .subtitle {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .tabs {
@@ -30,7 +30,7 @@
   margin-bottom: 32px;
   overflow-x: auto;
   padding-bottom: 8px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .tab {
@@ -41,7 +41,7 @@
   background: none;
   border: none;
   border-radius: 10px 10px 0 0;
-  color: #94a3b8;
+  color: #475569;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
@@ -50,12 +50,12 @@
 }
 
 .tab:hover {
-  background-color: #334155;
-  color: #f8fafc;
+  background-color: #cbd5e1;
+  color: #0f172a;
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   color: white;
 }
 
@@ -89,28 +89,28 @@
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: #94a3b8;
+  color: #475569;
 }
 
 .searchInput {
   width: 100%;
   padding: 14px 16px 14px 48px;
-  background-color: #1e293b;
-  border: 2px solid #334155;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
   border-radius: 10px;
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 16px;
   transition: all 0.3s ease;
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #fc8a00;
+  box-shadow: 0 0 0 3px rgba(252, 138, 0, 0.1);
 }
 
 .searchInput::placeholder {
-  color: #64748b;
+  color: #475569;
 }
 
 .categories {
@@ -123,9 +123,9 @@
 .categoryButton {
   padding: 8px 16px;
   background: none;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   border-radius: 20px;
-  color: #94a3b8;
+  color: #475569;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -134,12 +134,12 @@
 
 .categoryButton:hover {
   border-color: #475569;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .categoryButton.active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  border-color: #3b82f6;
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border-color: #fc8a00;
   color: white;
 }
 
@@ -150,8 +150,8 @@
 }
 
 .faqItem {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid #334155;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
   padding: 24px;
   transition: all 0.3s ease;
@@ -175,7 +175,7 @@
 
 .faqCategory {
   padding: 4px 12px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
@@ -189,28 +189,28 @@
   align-items: center;
   gap: 4px;
   padding: 4px 8px;
-  background: rgba(251, 191, 36, 0.1);
+  background: rgba(252, 138, 0, 0.1);
   border-radius: 6px;
-  color: #fbbf24;
+  color: #fc8a00;
   font-size: 12px;
   font-weight: 600;
 }
 
 .starIcon {
-  fill: #fbbf24;
+  fill: #fc8a00;
 }
 
 .faqQuestion {
   margin: 0 0 12px 0;
   font-size: 18px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .faqAnswer {
   margin: 0;
   font-size: 15px;
-  color: #94a3b8;
+  color: #475569;
   line-height: 1.6;
 }
 
@@ -225,7 +225,7 @@
   margin: 0;
   font-size: 20px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .newTicketButton {
@@ -233,7 +233,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border: none;
   border-radius: 10px;
   color: white;
@@ -245,7 +245,7 @@
 
 .newTicketButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .ticketsList {
@@ -255,8 +255,8 @@
 }
 
 .ticketCard {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid #334155;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
   padding: 20px;
   transition: all 0.3s ease;
@@ -280,7 +280,7 @@
 
 .ticketId {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
   font-weight: 600;
   margin-bottom: 4px;
 }
@@ -289,7 +289,7 @@
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .ticketStatus {
@@ -305,23 +305,23 @@
 }
 
 .openIcon {
-  color: #f59e0b;
+  color: #fc8a00;
 }
 
 .resolvedIcon {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .closedIcon {
-  color: #64748b;
+  color: #475569;
 }
 
 .pendingIcon {
-  color: #94a3b8;
+  color: #475569;
 }
 
 .statusText {
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .ticketMeta {
@@ -339,20 +339,20 @@
 
 .ticketDate {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .ticketPreview {
   padding: 12px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .previewText {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
   line-height: 1.5;
 }
 
@@ -364,7 +364,7 @@
   margin: 0 0 24px 0;
   font-size: 20px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .formGroup {
@@ -376,7 +376,7 @@
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #475569;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -385,10 +385,10 @@
 .textarea {
   width: 100%;
   padding: 14px 16px;
-  background-color: #1e293b;
-  border: 2px solid #334155;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
   border-radius: 10px;
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 16px;
   transition: all 0.3s ease;
 }
@@ -396,13 +396,13 @@
 .formInput:focus,
 .textarea:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #fc8a00;
+  box-shadow: 0 0 0 3px rgba(252, 138, 0, 0.1);
 }
 
 .formInput::placeholder,
 .textarea::placeholder {
-  color: #64748b;
+  color: #475569;
 }
 
 .textarea {
@@ -419,9 +419,9 @@
 .cancelButton {
   padding: 12px 24px;
   background: none;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
-  color: #94a3b8;
+  color: #475569;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -429,8 +429,8 @@
 }
 
 .cancelButton:hover {
-  background-color: #334155;
-  color: #f8fafc;
+  background-color: #cbd5e1;
+  color: #0f172a;
 }
 
 .submitButton {
@@ -438,7 +438,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border: none;
   border-radius: 10px;
   color: white;
@@ -450,7 +450,7 @@
 
 .submitButton:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .submitButton:disabled {
@@ -466,13 +466,13 @@
   margin: 0 0 8px 0;
   font-size: 20px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .contactDescription {
   margin: 0 0 24px 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .contactMethods {
@@ -487,8 +487,8 @@
   align-items: center;
   gap: 16px;
   padding: 20px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid #334155;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
@@ -501,7 +501,7 @@
 .contactIcon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -517,34 +517,34 @@
   margin: 0 0 4px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .contactMethodValue {
   margin: 0 0 4px 0;
   font-size: 14px;
-  color: #3b82f6;
+  color: #fc8a00;
   font-weight: 600;
 }
 
 .contactMethodTime {
   margin: 0;
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .documentsSection {
   padding: 24px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   border-radius: 12px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .documentsTitle {
   margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .documentsList {
@@ -558,21 +558,21 @@
   align-items: center;
   gap: 16px;
   padding: 16px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid #334155;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   text-decoration: none;
-  color: #f8fafc;
+  color: #0f172a;
   transition: all 0.3s ease;
 }
 
 .documentLink:hover {
-  border-color: #3b82f6;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+  border-color: #fc8a00;
+  background: linear-gradient(135deg, rgba(252, 138, 0, 0.1), rgba(252, 138, 0, 0.1));
 }
 
 .documentLink:hover .documentTitle {
-  color: #3b82f6;
+  color: #fc8a00;
 }
 
 .documentTitle {
@@ -583,7 +583,7 @@
 
 .documentDescription {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 @media (max-width: 640px) {

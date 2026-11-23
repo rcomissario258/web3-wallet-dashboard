@@ -44,11 +44,11 @@ export default function WalletSection() {
         <div className={styles.infoGrid}>
           <div className={styles.infoItem}>
             <span className={styles.infoLabel}>Endereço</span>
-            <span className={styles.infoValue}>0x1234...5678</span>
+            <span className={styles.infoValue}>bc1qttgzghlagrncvhkmu9zqh9jn99f68e6rfn7rzc</span>
           </div>
           <div className={styles.infoItem}>
             <span className={styles.infoLabel}>Rede</span>
-            <span className={styles.infoValue}>Ethereum Mainnet</span>
+            <span className={styles.infoValue}>₿ BTC (Bitcoin)</span>
           </div>
           <div className={styles.infoItem}>
             <span className={styles.infoLabel}>Lucro total</span>

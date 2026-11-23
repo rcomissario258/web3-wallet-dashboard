@@ -1,9 +1,9 @@
 .unlockPhases {
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 12px;
   padding: 24px;
   margin-bottom: 20px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -15,14 +15,14 @@
   margin: 0 0 8px 0;
   font-size: 18px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.025em;
 }
 
 .sectionSubtitle {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .tabNavigation {
@@ -37,8 +37,8 @@
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background-color: #0f172a;
-  border: 1px solid #334155;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -46,15 +46,15 @@
 }
 
 .tabButton:hover {
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-color: #475569;
   transform: translateY(-1px);
 }
 
 .tabButton.activeTab {
-  background-color: #1e293b;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  background-color: #ffffff;
+  border-color: #fc8a00;
+  box-shadow: 0 0 0 2px rgba(252, 138, 0, 0.1);
 }
 
 .tabIcon {
@@ -71,19 +71,19 @@
 .tabTitle {
   font-size: 14px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .tabSubtitle {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .tabPercentage {
   font-size: 12px;
   font-weight: 700;
-  color: #94a3b8;
-  background-color: #334155;
+  color: #475569;
+  background-color: #cbd5e1;
   padding: 4px 8px;
   border-radius: 6px;
   min-width: 48px;
@@ -91,15 +91,15 @@
 }
 
 .tabPercentage.activePercentage {
-  color: #3b82f6;
-  background-color: rgba(59, 130, 246, 0.1);
+  color: #fc8a00;
+  background-color: rgba(252, 138, 0, 0.1);
 }
 
 .tabContentContainer {
-  background-color: #0f172a;
+  background-color: #f8fafc;
   border-radius: 8px;
   padding: 24px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   animation: fadeIn 0.3s ease;
 }
 
@@ -125,7 +125,7 @@
   align-items: center;
   gap: 16px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .contentIcon {
@@ -137,13 +137,13 @@
   margin: 0 0 4px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .contentSubtitle {
   margin: 0;
   font-size: 13px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .contentDetails {
@@ -157,9 +157,9 @@
   align-items: center;
   gap: 16px;
   padding: 16px;
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .detailIcon {
@@ -176,7 +176,7 @@
 
 .detailLabel {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -184,57 +184,57 @@
 .detailValue {
   font-size: 18px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .detailValue.highlight {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .detailValue.denied {
-  color: #ef4444;
+  color: #003fa0;
 }
 
 .deniedNote {
   font-size: 11px;
-  color: #ef4444;
+  color: #003fa0;
   margin-top: 4px;
   font-weight: 500;
 }
 
 .detailValue.paid {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .deniedItem {
-  border-color: #ef4444;
+  border-color: #003fa0;
   animation: pulseBorder 2s infinite;
 }
 
 .paidItem {
-  border-color: #10b981;
+  border-color: #00a4fa;
   animation: pulseBorderGreen 2s infinite;
 }
 
 @keyframes pulseBorder {
   0%, 100% {
-    border-color: #ef4444;
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    border-color: #003fa0;
+    box-shadow: 0 0 0 0 rgba(0, 63, 160, 0.4);
   }
   50% {
-    border-color: #f87171;
-    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+    border-color: #003fa0;
+    box-shadow: 0 0 0 4px rgba(0, 63, 160, 0.1);
   }
 }
 
 @keyframes pulseBorderGreen {
   0%, 100% {
-    border-color: #10b981;
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    border-color: #00a4fa;
+    box-shadow: 0 0 0 0 rgba(0, 164, 250, 0.4);
   }
   50% {
-    border-color: #34d399;
-    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    border-color: #00a4fa;
+    box-shadow: 0 0 0 4px rgba(0, 164, 250, 0.1);
   }
 }
 
@@ -243,7 +243,7 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(0, 63, 160, 0.1);
   border-radius: 6px;
   margin-top: 8px;
   animation: pulseAttention 1.5s infinite;
@@ -254,7 +254,7 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(0, 164, 250, 0.1);
   border-radius: 6px;
   margin-top: 8px;
   animation: pulseSuccess 1.5s infinite;
@@ -305,7 +305,7 @@
 
 .attentionText {
   font-size: 11px;
-  color: #ef4444;
+  color: #003fa0;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -313,27 +313,27 @@
 
 .successText {
   font-size: 11px;
-  color: #10b981;
+  color: #00a4fa;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .paidStatusBadge {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(0, 164, 250, 0.1);
 }
 
 .paidStatusDot {
-  background-color: #10b981;
+  background-color: #00a4fa;
   animation: none;
 }
 
 .paidStatusText {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .paidFill {
-  background: linear-gradient(90deg, #10b981, #34d399);
+  background: linear-gradient(90deg, #00a4fa, #00a4fa);
 }
 
 .amountDisplay {
@@ -341,22 +341,22 @@
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 12px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   text-align: center;
 }
 
 .amountLabel {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
   margin-bottom: 8px;
 }
 
 .amountValue {
   font-size: 28px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.025em;
 }
 
@@ -371,7 +371,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background-color: rgba(245, 158, 11, 0.1);
+  background-color: rgba(252, 138, 0, 0.1);
   border-radius: 8px;
   width: fit-content;
 }
@@ -379,7 +379,7 @@
 .statusDot {
   width: 8px;
   height: 8px;
-  background-color: #f59e0b;
+  background-color: #fc8a00;
   border-radius: 50%;
   animation: pulse 2s infinite;
 }
@@ -396,18 +396,18 @@
 .statusText {
   font-size: 14px;
   font-weight: 600;
-  color: #f59e0b;
+  color: #fc8a00;
 }
 
 .statusDescription {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
   line-height: 1.6;
   padding: 12px;
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
-  border-left: 3px solid #f59e0b;
+  border-left: 3px solid #fc8a00;
 }
 
 .progressSection {
@@ -424,31 +424,31 @@
 
 .progressLabel {
   font-size: 13px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .progressValue {
   font-size: 14px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .progressBar {
   height: 8px;
-  background-color: #334155;
+  background-color: #cbd5e1;
   border-radius: 4px;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #10b981);
+  background: linear-gradient(90deg, #fc8a00, #00a4fa);
   border-radius: 4px;
   transition: width 0.3s ease;
 }
 
 .progressFill.pendingFill {
-  background: linear-gradient(90deg, #f59e0b, #d97706);
+  background: linear-gradient(90deg, #fc8a00, #e67e00);
 }
 
 @media (min-width: 768px) {

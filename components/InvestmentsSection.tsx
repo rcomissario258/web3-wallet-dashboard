@@ -1,8 +1,21 @@
 'use client';
 
+import InvestmentRecovery from './InvestmentRecovery';
 import styles from '@/styles/InvestmentsSection.module.css';
 
-export default function InvestmentsSection() {
+interface RecoveryData {
+  percentage: number;
+  initialInvestment: number;
+  recovered: number;
+  pending: number;
+  nextRecovery: number;
+}
+
+interface InvestmentsSectionProps {
+  recoveryData?: RecoveryData;
+}
+
+export default function InvestmentsSection({ recoveryData }: InvestmentsSectionProps) {
   const investments = [
     {
       name: 'Crypto Conservative',
@@ -37,6 +50,12 @@ export default function InvestmentsSection() {
   return (
     <div className={styles.investmentsSection}>
       <h2 className={styles.sectionTitle}>Investimentos</h2>
+      
+      {recoveryData && (
+        <div className={styles.recoverySection}>
+          <InvestmentRecovery recoveryData={recoveryData} />
+        </div>
+      )}
       
       <div className={styles.investmentsGrid}>
         {investments.map((investment, index) => (

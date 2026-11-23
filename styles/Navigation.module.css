@@ -3,32 +3,35 @@
   top: 20px;
   left: 20px;
   z-index: 1000;
-  background-color: #1e293b;
-  border: 1px solid #334155;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   padding: 12px;
-  color: #f8fafc;
+  color: #0f172a;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .mobileMenuButton:hover {
-  background-color: #334155;
+  background-color: #cbd5e1;
 }
 
 .sidebar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 280px;
-  height: 100vh;
-  background-color: #1e293b;
-  border-right: 1px solid #334155;
-  transform: translateX(-100%);
+  top: 16px;
+  left: 16px;
+  width: 264px;
+  height: calc(100vh - 32px);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.12);
+  transform: translateX(-120%);
   transition: transform 0.3s ease;
   z-index: 999;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .sidebar.open {
@@ -40,20 +43,20 @@
   align-items: center;
   justify-content: space-between;
   padding: 24px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .sidebarTitle {
   margin: 0;
   font-size: 20px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .closeButton {
   background: none;
   border: none;
-  color: #94a3b8;
+  color: #475569;
   cursor: pointer;
   padding: 4px;
   border-radius: 4px;
@@ -61,8 +64,8 @@
 }
 
 .closeButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #f8fafc;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
 }
 
 .sidebarNav {
@@ -80,11 +83,13 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 100%;
-  padding: 12px 24px;
+  width: calc(100% - 24px);
+  margin: 4px 12px;
+  padding: 12px 16px;
   background: none;
   border: none;
-  color: #94a3b8;
+  border-radius: 12px;
+  color: #475569;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 16px;
@@ -92,19 +97,19 @@
 }
 
 .navItem:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #f8fafc;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #0f172a;
 }
 
 .navItem.active {
-  background-color: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
-  border-right: 3px solid #3b82f6;
+  background-color: rgba(252, 138, 0, 0.1);
+  color: #fc8a00;
+  border-right: 3px solid #fc8a00;
 }
 
 .sidebarFooter {
   padding: 24px;
-  border-top: 1px solid #334155;
+  border-top: 1px solid #cbd5e1;
 }
 
 .logoutButton {
@@ -113,18 +118,18 @@
   gap: 12px;
   width: 100%;
   padding: 12px 24px;
-  background-color: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  background-color: rgba(0, 63, 160, 0.1);
+  border: 1px solid rgba(0, 63, 160, 0.2);
   border-radius: 8px;
-  color: #ef4444;
+  color: #003fa0;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 16px;
 }
 
 .logoutButton:hover {
-  background-color: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.3);
+  background-color: rgba(0, 63, 160, 0.2);
+  border-color: rgba(0, 63, 160, 0.3);
 }
 
 .overlay {
@@ -153,4 +158,34 @@
   .overlay {
     display: none;
   }
+}
+.sidebarLogo {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.languageSelector {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.languageLabel {
+  font-size: 12px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.languageSelect {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-size: 14px;
+  cursor: pointer;
 }

@@ -2,12 +2,20 @@
 
 import styles from '@/styles/InvestmentRecovery.module.css';
 
-export default function InvestmentRecovery() {
-  const recoveryPercentage = 65;
-  const initialInvestment = 5000;
-  const recovered = 3250;
-  const pending = 1750;
-  const nextRecovery = 500;
+interface RecoveryData {
+  percentage: number;
+  initialInvestment: number;
+  recovered: number;
+  pending: number;
+  nextRecovery: number;
+}
+
+interface InvestmentRecoveryProps {
+  recoveryData: RecoveryData;
+}
+
+export default function InvestmentRecovery({ recoveryData }: InvestmentRecoveryProps) {
+  const { percentage, initialInvestment, recovered, pending, nextRecovery } = recoveryData;
 
   return (
     <div className={styles.investmentRecovery}>
@@ -32,10 +40,10 @@ export default function InvestmentRecovery() {
         <div className={styles.progressBar}>
           <div 
             className={styles.progressFill}
-            style={{ width: `${recoveryPercentage}%` }}
+            style={{ width: `${percentage}%` }}
           />
         </div>
-        <span className={styles.progressText}>{recoveryPercentage}%</span>
+        <span className={styles.progressText}>{percentage}%</span>
       </div>
 
       <div className={styles.nextRecovery}>

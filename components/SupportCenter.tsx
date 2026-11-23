@@ -39,7 +39,7 @@ export default function SupportCenter() {
       id: 1,
       category: 'Geral',
       question: 'Como funciona o sistema de levantamento?',
-      answer: 'O sistema de levantamento é dividido em 3 fases baseadas no total recuperado de 4 milhões. Cada fase tem um valor específico e só pode ser levantada quando a anterior for concluída.',
+      answer: 'O sistema de levantamento é dividido em 3 fases baseadas no total recuperado de 4.600.030.00. Cada fase tem um valor específico e só pode ser levantada quando a anterior for concluída.',
       rating: 4.8
     },
     {
@@ -123,13 +123,13 @@ export default function SupportCenter() {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high':
-        return '#ef4444';
+        return '#003fa0';
       case 'medium':
-        return '#f59e0b';
+        return '#fc8a00';
       case 'low':
-        return '#10b981';
+        return '#00a4fa';
       default:
-        return '#94a3b8';
+        return '#475569';
     }
   };
 
@@ -293,7 +293,7 @@ export default function SupportCenter() {
             </div>
             <div className={styles.contactInfo}>
               <h4 className={styles.contactMethodTitle}>Email</h4>
-              <p className={styles.contactMethodValue}>support@autotrade.net</p>
+              <p className={styles.contactMethodValue}>support@gincana.net</p>
               <p className={styles.contactMethodTime}>Resposta em 24h</p>
             </div>
           </div>

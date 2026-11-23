@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   User, Mail, Phone, Shield, Bell, Globe, CreditCard, 
   Lock, Key, Eye, EyeOff, Save, Camera, Upload, 
@@ -31,8 +31,28 @@ export default function ProfileSettings() {
     smsNotifications: false,
     pushNotifications: true,
     marketingEmails: false,
-    securityAlerts: true
+    securityAlerts: true,
+    profilePhoto: 'data:image/jpeg;base64,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'
   });
+
+  // Carregar dados do localStorage ao montar
+  useEffect(() => {
+    try {
+      const savedProfile = localStorage.getItem('profileSettings');
+      if (savedProfile) {
+        const profileData = JSON.parse(savedProfile);
+        setFormData(profileData);
+      }
+      
+      // Carregar email do localStorage para usar no WithdrawalModal
+      const savedEmail = localStorage.getItem('userEmail');
+      if (savedEmail) {
+        setFormData(prev => ({ ...prev, email: savedEmail }));
+      }
+    } catch (error) {
+      console.error('Erro ao carregar dados do perfil:', error);
+    }
+  }, []);
 
   const tabs = [
     { id: 'personal', label: 'Informações Pessoais', icon: User },
@@ -47,6 +67,11 @@ export default function ProfileSettings() {
     await new Promise(resolve => setTimeout(resolve, 1500));
     setIsSaving(false);
     setSaveSuccess(true);
+    
+    // Salvar email no localStorage para uso no WithdrawalModal
+    localStorage.setItem('userEmail', formData.email);
+    localStorage.setItem('profileSettings', JSON.stringify(formData));
+    
     setTimeout(() => setSaveSuccess(false), 3000);
   };
 
@@ -61,18 +86,19 @@ export default function ProfileSettings() {
         
         <div className={styles.avatarSection}>
           <div className={styles.avatarContainer}>
-            <div className={styles.avatar}>EO</div>
-            <button className={styles.avatarButton}>
-              <Camera size={20} />
-            </button>
+            {formData.profilePhoto ? (
+              <img 
+                src={formData.profilePhoto} 
+                alt="Profile" 
+                className={styles.avatarImage}
+              />
+            ) : (
+              <div className={styles.avatar}>EO</div>
+            )}
           </div>
           <div className={styles.avatarInfo}>
             <h5 className={styles.avatarName}>Eduardo Oliveira</h5>
             <p className={styles.avatarStatus}>Platinum Member</p>
-            <button className={styles.uploadButton}>
-              <Upload size={16} />
-              <span>Carregar Foto</span>
-            </button>
           </div>
         </div>
 

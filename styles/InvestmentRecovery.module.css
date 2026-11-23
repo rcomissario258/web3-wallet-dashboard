@@ -1,16 +1,16 @@
 .investmentRecovery {
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 8px;
   padding: 24px;
   margin-bottom: 20px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .sectionTitle {
   margin: 0 0 20px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .recoveryDetails {
@@ -28,13 +28,13 @@
 
 .detailLabel {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .detailValue {
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .progressBarContainer {
@@ -47,14 +47,14 @@
 .progressBar {
   flex: 1;
   height: 24px;
-  background-color: #334155;
+  background-color: #cbd5e1;
   border-radius: 12px;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #10b981);
+  background: linear-gradient(90deg, #fc8a00, #00a4fa);
   border-radius: 12px;
   transition: width 0.3s ease;
 }
@@ -62,7 +62,7 @@
 .progressText {
   font-size: 16px;
   font-weight: 600;
-  color: #10b981;
+  color: #00a4fa;
   min-width: 40px;
   text-align: right;
 }
@@ -72,16 +72,16 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 16px;
-  border-top: 1px solid #334155;
+  border-top: 1px solid #cbd5e1;
 }
 
 .nextRecoveryLabel {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .nextRecoveryValue {
   font-size: 16px;
   font-weight: 600;
-  color: #10b981;
+  color: #00a4fa;
 }

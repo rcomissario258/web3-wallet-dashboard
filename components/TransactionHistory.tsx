@@ -12,22 +12,28 @@ interface Transaction {
 export default function TransactionHistory() {
   const transactions: Transaction[] = [
     {
-      date: '12 Sep',
-      type: 'Recuperação',
-      amount: '+$500.00',
+      date: '16/10/26',
+      type: 'Levantamento',
+      amount: '+R$120.000,00',
       status: 'Concluído',
     },
     {
-      date: '05 Sep',
-      type: 'Lucro',
-      amount: '+$180.00',
-      status: 'Concluído',
+      date: '10/10/26',
+      type: 'Levantamento',
+      amount: '+R$70.000,00',
+      status: 'Pendente de aprovação',
     },
     {
-      date: '29 Aug',
-      type: 'Recuperação',
-      amount: '+$350.00',
-      status: 'Concluído',
+      date: '09/10/26',
+      type: 'Levantamento',
+      amount: '+R$150.000,00',
+      status: 'Pendente de aprovação',
+    },
+    {
+      date: '09/10/26',
+      type: 'Levantamento',
+      amount: '+R$50.000,00',
+      status: 'Pendente de aprovação',
     },
   ];
 

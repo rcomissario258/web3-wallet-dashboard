@@ -123,10 +123,10 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 5px rgba(252, 138, 0, 0.5);
   }
   50% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 20px rgba(252, 138, 0, 0.8);
   }
 }
 
@@ -169,7 +169,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.08),
     transparent
   );
   background-size: 1000px 100%;
@@ -281,7 +281,7 @@
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 20px rgba(252, 138, 0, 0.5);
 }
 
 /* Loading states */
@@ -289,9 +289,9 @@
 .loading-skeleton {
   background: linear-gradient(
     90deg,
-    #1e293b 0%,
-    #334155 50%,
-    #1e293b 100%
+    #ffffff 0%,
+    #cbd5e1 50%,
+    #ffffff 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
@@ -299,8 +299,8 @@
 }
 
 .loading-spinner {
-  border: 3px solid #334155;
-  border-top: 3px solid #3b82f6;
+  border: 3px solid #cbd5e1;
+  border-top: 3px solid #fc8a00;
   border-radius: 50%;
   width: 24px;
   height: 24px;

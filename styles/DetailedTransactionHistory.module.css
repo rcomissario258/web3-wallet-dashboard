@@ -1,8 +1,8 @@
 .transactionHistory {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 16px;
   padding: 32px;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -17,14 +17,14 @@
   margin: 0 0 8px 0;
   font-size: 18px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   letter-spacing: -0.025em;
 }
 
 .sectionSubtitle {
   margin: 0;
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .exportButton {
@@ -32,7 +32,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border: none;
   border-radius: 10px;
   color: white;
@@ -44,7 +44,7 @@
 
 .exportButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .filters {
@@ -63,28 +63,28 @@
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: #94a3b8;
+  color: #475569;
 }
 
 .searchInput {
   width: 100%;
   padding: 14px 16px 14px 48px;
-  background-color: #1e293b;
-  border: 2px solid #334155;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
   border-radius: 10px;
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 16px;
   transition: all 0.3s ease;
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #fc8a00;
+  box-shadow: 0 0 0 3px rgba(252, 138, 0, 0.1);
 }
 
 .searchInput::placeholder {
-  color: #64748b;
+  color: #475569;
 }
 
 .filterButtons {
@@ -95,10 +95,10 @@
 
 .filterButton {
   padding: 8px 16px;
-  background-color: #1e293b;
-  border: 2px solid #334155;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
   border-radius: 20px;
-  color: #94a3b8;
+  color: #475569;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -107,12 +107,12 @@
 
 .filterButton:hover {
   border-color: #475569;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .filterButton.active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  border-color: #3b82f6;
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
+  border-color: #fc8a00;
   color: white;
 }
 
@@ -124,8 +124,8 @@
 }
 
 .transactionCard {
-  background-color: #1e293b;
-  border: 1px solid #334155;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
   padding: 20px;
   transition: all 0.3s ease;
@@ -144,7 +144,7 @@
   gap: 16px;
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .transactionIcon {
@@ -154,16 +154,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #334155;
+  background-color: #cbd5e1;
   flex-shrink: 0;
 }
 
 .depositIcon {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .withdrawalIcon {
-  color: #ef4444;
+  color: #003fa0;
 }
 
 .transactionInfo {
@@ -179,13 +179,13 @@
 
 .idLabel {
   font-size: 12px;
-  color: #94a3b8;
+  color: #475569;
   font-weight: 600;
 }
 
 .idValue {
   font-size: 12px;
-  color: #3b82f6;
+  color: #fc8a00;
   font-weight: 600;
   font-family: monospace;
 }
@@ -194,7 +194,7 @@
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #0f172a;
 }
 
 .statusBadge {
@@ -211,38 +211,38 @@
 }
 
 .statusBadge.completed {
-  background-color: rgba(16, 185, 129, 0.2);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background-color: rgba(0, 164, 250, 0.2);
+  color: #00a4fa;
+  border: 1px solid rgba(0, 164, 250, 0.3);
 }
 
 .statusBadge.pending,
 .statusBadge.processing {
-  background-color: rgba(245, 158, 11, 0.2);
-  color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background-color: rgba(252, 138, 0, 0.2);
+  color: #fc8a00;
+  border: 1px solid rgba(252, 138, 0, 0.3);
 }
 
 .statusBadge.failed {
-  background-color: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background-color: rgba(0, 63, 160, 0.2);
+  color: #003fa0;
+  border: 1px solid rgba(0, 63, 160, 0.3);
 }
 
 .completedIcon {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .pendingIcon {
-  color: #f59e0b;
+  color: #fc8a00;
 }
 
 .failedIcon {
-  color: #ef4444;
+  color: #003fa0;
 }
 
 .warningIcon {
-  color: #f59e0b;
+  color: #fc8a00;
 }
 
 .transactionDetails {
@@ -257,41 +257,62 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 12px;
-  background-color: #0f172a;
+  background-color: #f8fafc;
   border-radius: 8px;
 }
 
 .detailLabel {
   font-size: 13px;
-  color: #94a3b8;
+  color: #475569;
   font-weight: 600;
 }
 
 .detailValue {
   font-size: 14px;
-  color: #f8fafc;
+  color: #0f172a;
   font-weight: 600;
 }
 
 .detailValue.positive {
-  color: #10b981;
+  color: #00a4fa;
 }
 
 .detailValue.negative {
-  color: #ef4444;
+  color: #003fa0;
 }
 
 .transactionFooter {
   display: flex;
   justify-content: flex-end;
+  gap: 12px;
+}
+
+.receiptButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #003fa0, #003fa0);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.receiptButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 63, 160, 0.4);
 }
 
 .viewDetailsButton {
   padding: 8px 16px;
   background: none;
-  border: 1px solid #334155;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
-  color: #94a3b8;
+  color: #475569;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -299,8 +320,8 @@
 }
 
 .viewDetailsButton:hover {
-  background-color: #334155;
-  color: #f8fafc;
+  background-color: #cbd5e1;
+  color: #0f172a;
   border-color: #475569;
 }
 
@@ -314,13 +335,13 @@
 }
 
 .emptyIcon {
-  color: #94a3b8;
+  color: #475569;
   margin-bottom: 16px;
 }
 
 .emptyText {
   font-size: 16px;
-  color: #94a3b8;
+  color: #475569;
   margin: 0;
 }
 
@@ -329,12 +350,12 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 24px;
-  border-top: 1px solid #334155;
+  border-top: 1px solid #cbd5e1;
 }
 
 .paginationButton {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, #fc8a00, #e67e00);
   border: none;
   border-radius: 10px;
   color: white;
@@ -346,18 +367,18 @@
 
 .paginationButton:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 138, 0, 0.4);
 }
 
 .paginationButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background: #334155;
+  background: #cbd5e1;
 }
 
 .paginationInfo {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
   font-weight: 600;
 }
 
@@ -383,4 +404,204 @@
   .statusBadge {
     align-self: flex-start;
   }
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.modalBody {
+  padding: 24px;
+}
+
+.detailSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.detailSection:last-child {
+  border-bottom: none;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 24px;
+  border-top: 1px solid #cbd5e1;
+}
+
+/* Receipt Styles */
+.receiptHeader {
+  margin-bottom: 24px;
+}
+
+.receiptLogo {
+  margin-bottom: 24px;
+}
+
+.logoBorder {
+  border: 3px solid #003fa0;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: white;
+  text-align: center;
+}
+
+.logoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoTitle {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #003fa0;
+  letter-spacing: -0.05em;
+}
+
+.logoSubtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.logoStars {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.star {
+  font-size: 24px;
+  color: #003fa0;
+  animation: starPulse 1.5s ease-in-out infinite;
+}
+
+.star:nth-child(2) {
+  animation-delay: 0.75s;
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.logoFooter {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.receiptDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.receiptRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+}
+
+.receiptLabel {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.receiptValue {
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.receiptValue.positive {
+  color: #00a4fa;
+}
+
+.receiptValue.negative {
+  color: #003fa0;
+}
+.receiptLogoImage {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(15, 23, 42, 0.12));
 }
