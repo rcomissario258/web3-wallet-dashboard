@@ -73,6 +73,13 @@ export default function WithdrawalHistory() {
   };
 
   useEffect(() => {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser === 'wolfgang') {
+      localStorage.setItem('withdrawalHistory', JSON.stringify([]));
+      localStorage.setItem('totalWithdrawnUSD', '0');
+      setWithdrawals([]);
+      return;
+    }
     // Load withdrawals from localStorage
     const savedWithdrawals = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
 

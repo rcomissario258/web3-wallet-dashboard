@@ -100,7 +100,9 @@ const USERS = {
     securityScore: '92%',
     totalRecovered: 30401.02,
     phases: [
-      { id: 1, percentage: 100, amount: 30401.02, status: 'available' as const, title: '1ª Fase', description: 'Valor global pretendido' }
+      { id: 1, percentage: 33, amount: 10133.67, status: 'available' as const, title: '1ª Fase', description: '33% do total recuperado' },
+      { id: 2, percentage: 33, amount: 10133.67, status: 'available' as const, title: '2ª Fase', description: '33% do total recuperado' },
+      { id: 3, percentage: 34, amount: 10133.68, status: 'available' as const, title: '3ª Fase', description: '34% do total recuperado' }
     ],
     recovery: {
       percentage: 100,
@@ -150,6 +152,7 @@ export default function Dashboard() {
     setPassword('');
     setLoginError('');
     setCurrentUser(null);
+    try { localStorage.removeItem('currentUser'); } catch (e) {}
   };
 
   const handleLogin = (e: React.FormEvent) => {
@@ -186,6 +189,14 @@ export default function Dashboard() {
         setIsLoggedIn(true);
         setCurrentUser(foundUser);
         setLoginError('');
+        try {
+          localStorage.setItem('currentUser', foundUser);
+          if (foundUser === 'wolfgang') {
+            localStorage.removeItem('withdrawalHistory');
+            localStorage.setItem('totalWithdrawnUSD', '0');
+            window.dispatchEvent(new Event('customStorageUpdate'));
+          }
+        } catch (e) {}
       }, 30000);
     } else {
       setLoginError(t('invalidCredentials'));
@@ -288,7 +299,7 @@ export default function Dashboard() {
 
                 {/* Balance Cards */}
                 <div className={`${styles.balanceSection} ${styles.fadeIn} ${styles.stagger2}`}>
-                  <BalanceCard />
+                  <BalanceCard totalRecovered={USERS[currentUser].totalRecovered} />
                 </div>
 
                 {/* Withdrawal Phases */}

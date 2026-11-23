@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react';
 import { TrendingUp, TrendingDown, DollarSign, Wallet, ArrowUpRight } from 'lucide-react';
 import styles from '@/styles/BalanceCard.module.css';
 
-export default function BalanceCard() {
-  const [totalRecovered, setTotalRecovered] = useState(4600030);
+export default function BalanceCard({ totalRecovered: propTotal }: { totalRecovered?: number }) {
+  const [totalRecovered, setTotalRecovered] = useState(propTotal || 4600030);
   const [totalWithdrawn, setTotalWithdrawn] = useState(0);
 
   useEffect(() => {
+    if (propTotal) setTotalRecovered(propTotal);
     // Carregar total levantado do localStorage
     const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]').map((w:any) => w.id === 'WD-120K-BRL' ? { ...w, exchangeRate: 1.0 } : w);
     let source = list;
