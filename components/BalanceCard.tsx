@@ -13,6 +13,16 @@ export default function BalanceCard() {
     const savedTotalWithdrawn = localStorage.getItem('totalWithdrawnUSD');
     if (savedTotalWithdrawn) {
       setTotalWithdrawn(parseFloat(savedTotalWithdrawn));
+    } else {
+      const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]');
+      const completed = list.filter((w:any)=>w.status==='completed'||w.status==='approved');
+      let total=0;
+      completed.forEach((w:any)=>{
+        const cur=w.currency||'USD'; const amt=w.amount||0; const rate=w.exchangeRate||5;
+        total += cur==='USD' ? amt : amt/rate;
+      });
+      setTotalWithdrawn(total);
+      localStorage.setItem('totalWithdrawnUSD', total.toString());
     }
 
     // Listener para atualizar quando localStorage mudar

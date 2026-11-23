@@ -1,5 +1,6 @@
 allowBuilds:
   bufferutil: true
+  core-js: set this to true or false
   es5-ext: true
   keccak: true
   utf-8-validate: true

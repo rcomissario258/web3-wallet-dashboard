@@ -59,7 +59,10 @@ export default function WithdrawalPhases({ totalAmount, phases }: WithdrawalPhas
         }];
         localStorage.setItem('withdrawalHistory', JSON.stringify(saved));
       }
-      setTotalWithdrawn(calculateApprovedUSD(saved));
+      const total = calculateApprovedUSD(saved);
+      setTotalWithdrawn(total);
+      localStorage.setItem('totalWithdrawnUSD', total.toString());
+      window.dispatchEvent(new Event('customStorageUpdate'));
     };
     load();
 
