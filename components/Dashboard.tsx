@@ -100,9 +100,9 @@ const USERS = {
     securityScore: '92%',
     totalRecovered: 30401.02,
     phases: [
-      { id: 1, percentage: 33, amount: 10133.67, status: 'available' as const, title: '1ª Fase', description: '33% do total recuperado' },
-      { id: 2, percentage: 33, amount: 10133.67, status: 'available' as const, title: '2ª Fase', description: '33% do total recuperado' },
-      { id: 3, percentage: 34, amount: 10133.68, status: 'available' as const, title: '3ª Fase', description: '34% do total recuperado' }
+      { id: 1, percentage: 33, amount: 10133.67, status: 'locked' as const, title: '1ª Fase', description: '33% do total recuperado' },
+      { id: 2, percentage: 33, amount: 10133.67, status: 'locked' as const, title: '2ª Fase', description: '33% do total recuperado' },
+      { id: 3, percentage: 34, amount: 10133.68, status: 'locked' as const, title: '3ª Fase', description: '34% do total recuperado' }
     ],
     recovery: {
       percentage: 100,
