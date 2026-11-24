@@ -204,7 +204,7 @@ export default function Dashboard() {
                 status: 'completed',
                 exchangeRate: 1.0
               }]));
-              localStorage.setItem('totalWithdrawnUSD', '120000');
+              localStorage.setItem('totalWithdrawnUSD', '390000');
             }
           }
           window.dispatchEvent(new Event('customStorageUpdate'));

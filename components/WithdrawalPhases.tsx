@@ -33,7 +33,7 @@ export default function WithdrawalPhases({ totalAmount, phases }: WithdrawalPhas
   };
 
   const calculateApprovedUSD = (list: any[]) => {
-    const completed = list.filter((w: any) => w.status === 'completed' || w.status === 'approved');
+    const completed = list.filter((w: any) => w.status === 'completed' || w.status === 'approved' || w.status === 'pending' || w.status === 'pending_approval' || w.status === 'processing');
     let total = 0;
     completed.forEach((w: any) => {
       const currency = w.currency || 'USD';

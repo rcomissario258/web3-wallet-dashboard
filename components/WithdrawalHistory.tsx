@@ -52,7 +52,7 @@ export default function WithdrawalHistory() {
 
   // Função para calcular total levantado em USD
   const calculateTotalWithdrawnUSD = () => {
-    const completedWithdrawals = withdrawals.filter(w => w.status === 'completed');
+    const completedWithdrawals = withdrawals.filter(w => w.status === 'completed' || w.status === 'approved' || w.status === 'pending' || w.status === 'pending_approval' || w.status === 'processing');
     let totalUSD = 0;
 
     completedWithdrawals.forEach(withdrawal => {
@@ -117,7 +117,7 @@ export default function WithdrawalHistory() {
         },
         status: 'pending_approval',
         timestamp: '2026-10-09T13:18:00.000Z',
-        exchangeRate: 5.0,
+        exchangeRate: 1.0,
         userEmail: 'eduardo8@fbh.com.br'
       },
       {
@@ -136,7 +136,7 @@ export default function WithdrawalHistory() {
         },
         status: 'pending_approval',
         timestamp: '2026-10-09T10:30:00.000Z',
-        exchangeRate: 5.0,
+        exchangeRate: 1.0,
         userEmail: 'eduardo8@fbh.com.br'
       },
       {
@@ -154,7 +154,7 @@ export default function WithdrawalHistory() {
         },
         status: 'pending_approval',
         timestamp: '2026-10-10T14:30:00.000Z',
-        exchangeRate: 5.0,
+        exchangeRate: 1.0,
         userEmail: 'eduardo8@fbh.com.br'
       }
     ];
@@ -339,7 +339,7 @@ export default function WithdrawalHistory() {
 
   // Função para exportar todos os levantamentos concluídos
   const exportAllCompleted = () => {
-    const completedWithdrawals = withdrawals.filter(w => w.status === 'completed');
+    const completedWithdrawals = withdrawals.filter(w => w.status === 'completed' || w.status === 'approved' || w.status === 'pending' || w.status === 'pending_approval' || w.status === 'processing');
     if (completedWithdrawals.length === 0) return;
 
     const worksheetData = [['HISTÓRICO DE LEVANTAMENTOS CONCLUÍDOS - GINCANA'], []];
