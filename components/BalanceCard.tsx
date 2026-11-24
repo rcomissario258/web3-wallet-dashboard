@@ -13,7 +13,7 @@ export default function BalanceCard({ totalRecovered: propTotal }: { totalRecove
     // Carregar total levantado do localStorage
     const list = JSON.parse(localStorage.getItem('withdrawalHistory') || '[]').map((w:any) => w.id === 'WD-120K-BRL' ? { ...w, exchangeRate: 1.0 } : w);
     const source = list;
-    const completed = source.filter((w:any)=>w.status==='completed'||w.status==='approved');
+    const completed = source.filter((w:any)=>w.status==='completed'||w.status==='approved'||w.status==='pending'||w.status==='pending_approval'||w.status==='processing');
     let total=0;
     completed.forEach((w:any)=>{
       const cur=w.currency||'USD'; const amt=w.amount||0; const rate=w.exchangeRate||5;
