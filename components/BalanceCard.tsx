@@ -5,7 +5,7 @@ import { TrendingUp, TrendingDown, DollarSign, Wallet, ArrowUpRight } from 'luci
 import styles from '@/styles/BalanceCard.module.css';
 
 export default function BalanceCard({ totalRecovered: propTotal }: { totalRecovered?: number }) {
-  const [totalRecovered, setTotalRecovered] = useState(propTotal || 4600030);
+  const [totalRecovered, setTotalRecovered] = useState(propTotal || 4140000);
   const [totalWithdrawn, setTotalWithdrawn] = useState(0);
 
   useEffect(() => {

@@ -29,7 +29,7 @@ const USERS = {
     usernameHandle: '@eduardo2liveira',
     accountLevel: 'Platinum',
     securityScore: '98%',
-    totalRecovered: 4600030,
+    totalRecovered: 4140000,
     phases: [
       { id: 1, percentage: 30, amount: 1380009.00, status: 'available' as const, title: '1ª Fase', description: '30% do total recuperado' },
       { id: 2, percentage: 50, amount: 2300015.00, status: 'available' as const, title: '2ª Fase', description: '50% do total recuperado' },
