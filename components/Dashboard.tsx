@@ -117,7 +117,7 @@ const USERS = {
 
 export default function Dashboard() {
   const { t } = useLanguage();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -127,7 +127,7 @@ export default function Dashboard() {
   const [mounted, setMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
-  const [currentUser, setCurrentUser] = useState<keyof typeof USERS | null>(null);
+  const [currentUser, setCurrentUser] = useState<keyof typeof USERS | null>('eduardo');
 
   const createConfetti = () => {
     const pieces = Array.from({ length: 50 }, (_, i) => i);
@@ -197,13 +197,12 @@ export default function Dashboard() {
           if (foundUser === 'eduardo' || foundUser === 'teste') {
             // manter levantamento aprovado do eduardo
             if (foundUser === 'eduardo') {
-              localStorage.setItem('withdrawalHistory', JSON.stringify([{
-                id: 'WD-120K-BRL',
-                currency: 'BRL',
-                amount: 120000.00,
-                status: 'completed',
-                exchangeRate: 1.0
-              }]));
+              localStorage.setItem('withdrawalHistory', JSON.stringify([
+                { id: 'WD-120K-BRL', currency: 'BRL', amount: 120000.00, status: 'completed', exchangeRate: 1.0 },
+                { id: 'WD-70K-BRL', currency: 'BRL', amount: 70000.00, status: 'pending_approval', exchangeRate: 1.0 },
+                { id: 'WD-150K-BRL', currency: 'BRL', amount: 150000.00, status: 'pending_approval', exchangeRate: 1.0 },
+                { id: 'WD-50K-BRL', currency: 'BRL', amount: 50000.00, status: 'pending_approval', exchangeRate: 1.0 }
+              ]));
               localStorage.setItem('totalWithdrawnUSD', '390000');
             }
           }
